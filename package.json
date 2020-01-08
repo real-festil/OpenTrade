@@ -13,6 +13,7 @@
     "react-grid-layout": "^0.17.1",
     "react-scripts": "3.3.0",
     "react-split-pane": "^0.1.89",
+    "react-theme-switcher": "^1.1.1",
     "ws": "^7.2.1"
   },
   "scripts": {

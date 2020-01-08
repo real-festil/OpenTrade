@@ -4,33 +4,53 @@ import Layout from './components/layout/layout';
 import Dashboard from './containers/dashboard/dashboard';
 import Login from './containers/login/login';
 import Risk from './containers/risk/risk';
-import ReactAux from './hoc/ReactAux';
 
 class App extends Component {
   state = {
     isLogged: false
   }
 
+  componentDidMount() {
+    const isLogged = JSON.parse(localStorage.getItem('isLogged'));
+    console.log(isLogged)
+    this.setState({isLogged : isLogged});
+  }
+
   onLoginPass = () => {
-    this.setState({isLogged: true});
-    console.log(this.state);
+    let promise = new Promise(( resolve ) => {
+      resolve(this.setState({isLogged: true}));
+    });
+    promise.then (
+      result => localStorage.setItem('isLogged', this.state.isLogged)
+    )
+  }
+
+  onLogout = () => {
+    let promise = new Promise(( resolve ) => {
+      resolve(this.setState({isLogged: false}));
+    });
+    promise.then (
+      result => localStorage.setItem('isLogged', this.state.isLogged)
+    )
   }
 
   render () {
     let login = (<Login clicked={this.onLoginPass}/>);
+    console.log(this.state.isLogged);
     let redirect = this.state.isLogged ?
         (
-          <ReactAux>
+          <>
             <Route path='/dashboard' component={Dashboard}/>
             <Route path='/login'><Redirect to='/dashboard'/></Route>
             <Route path='/risk' component={Risk}/>
             <Route path='/' exact>
               <Redirect to='/dashboard'/>
             </Route>
-          </ReactAux>
+            <button onClick={this.onLogout}>Log Out</button>
+          </>
         )
       : (
-          <ReactAux>
+          <>
             <Route path='/login'>{login}</Route>
             <Route path='/dashboard'>
               <Redirect to='/login'/>
@@ -41,7 +61,7 @@ class App extends Component {
             <Route path='/' exact>
               <Redirect to='/login'/>
             </Route>
-          </ReactAux>
+          </>
         )
       ;
     return (
@@ -52,7 +72,6 @@ class App extends Component {
           </Switch>
         </BrowserRouter>
       </Layout>
-
     );
   }
 }
