@@ -36,7 +36,6 @@ class App extends Component {
 
   render () {
     let login = (<Login clicked={this.onLoginPass}/>);
-    console.log(this.state.isLogged);
     let redirect = this.state.isLogged ?
         (
           <>

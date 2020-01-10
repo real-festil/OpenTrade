@@ -1,0 +1,22 @@
+.Button {
+  width: 85px;
+  height: 33px;
+  background-color: #22ADF6;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.Button:disabled {
+  background-color: #383846;
+  color: #bbb8b8;
+}
+
+.Button:enabled:hover {
+  background-color: #48b5f0;
+  cursor: pointer;
+}
+/*# sourceMappingURL=button.module.css.map */

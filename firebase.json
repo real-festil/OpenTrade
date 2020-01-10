@@ -5,6 +5,22 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ]
+    ],
+    "redirects": [ {
+    // Returns a permanent redirect to "/bar" for requests to "/foo" (but not "/foo/**")
+    "source": "/dashboard",
+    "destination": "/",
+    "type": 301
+  }, {
+    // Returns a permanent redirect to "/bar" for requests to both "/foo" and "/foo/**"
+    "source": "/login",
+    "destination": "/",
+    "type": 301
+  }, {
+    // Returns a temporary redirect for all requests to files or directories in the "firebase" directory
+    "source": "/risk",
+    "destination": "/",
+    "type": 301
+  } ]
   }
 }

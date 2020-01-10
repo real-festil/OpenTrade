@@ -1,0 +1,32 @@
+.Input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 0 5px 5px 0;
+    transition: 0.2s ease;
+}
+
+.Input:hover {
+    border: 1px solid gray;
+}
+
+.Input:focus{
+    outline: none;
+    border: 1px solid gray;
+    box-shadow: 0px 0px 8px #20a8d8;
+}
+
+.InputBox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.InputBox img {
+    width: 30px;
+    border: 1px solid gray;
+    height: 35px;
+    background-color: #23282c;
+    border-radius: 5px 0 0 5px;
+    padding:0 7px;
+}
