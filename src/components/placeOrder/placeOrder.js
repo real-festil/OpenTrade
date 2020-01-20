@@ -4,7 +4,9 @@ import classes from './placeOrder.module.css';
 import GridLayout from 'react-grid-layout';
 import Button from '../ui/button/button';
 import Input from '../ui/input/input';
+import Backdrop from '../ui/backdrop/backdrop';
 import '../changePassword/changePassword.css';
+import './Dragging.css';
 import crossImage from '../../images/cross.svg';
 import Manual from './Forms/Manual/manual';
 import AlphaExample from './Forms/AplhaExample/alphaExample';
@@ -28,7 +30,7 @@ class PlaceOrder extends Component {
     ];
 
     layout = [
-        {i: 'a', x: 1, y: 0, w: 6 , h: 3, minW: 3.3, maxW: Infinity, minH: 2.9, maxH: Infinity}
+        {i: 'a', x: 4, y: 0, w: 6 , h: 3, minW: 3.3, maxW: Infinity, minH: 2.9, maxH: Infinity}
     ];
 
     onSelectedChange = (data) => {
@@ -39,30 +41,37 @@ class PlaceOrder extends Component {
         let optionRender = this.state.option;
         if ( optionRender === 'Manual') {
             optionRender = (
-                <Manual/>
+                <Manual modalClosed={this.props.modalClosed}/>
             )
         }  else if ( optionRender === 'AlphaExample') {
             optionRender = (
-                <AlphaExample/>
+                <AlphaExample modalClosed={this.props.modalClosed}/>
             )
         }  else if ( optionRender === 'TWAP') {
             optionRender = (
-                <Twap/>
+                <Twap modalClosed={this.props.modalClosed}/>
             )
         }  else if ( optionRender === 'TwapPy') {
             optionRender = (
-                <TwapPy/>
+                <TwapPy modalClosed={this.props.modalClosed}/>
             )
         } else if ( optionRender === 'MACrossing') {
             optionRender = (
-                <MACrossing/>
+                <MACrossing modalClosed={this.props.modalClosed}/>
             )
         }
         return (
+            <>
+            <Backdrop show={this.props.show} />
             <GridLayout className={classes.placeOrder}
                         draggableHandle='.Handler'
                         layout={this.layout}
                         width={1200}
+                        verticalCompact={false}
+                        style={{
+                            transform: this.props.show ? 'translateY(0)' : 'translateY(-100vh)',
+                            opacity: this.props.show ? '1' : '0'
+                        }}
                         isResizable={true}>
                 <div key="a" className={classes.Draggable}>
                     <div className='Handler'>
@@ -75,13 +84,13 @@ class PlaceOrder extends Component {
                                             width='145%'
                                             containerWidth='30%'/>
                             </div>
-                            <img src={crossImage} alt=''/>
+                            <img src={crossImage} alt='' onClick={this.props.modalClosed}/>
                         </div>
                     </div>
                     {optionRender}
                 </div>
-
             </GridLayout>
+            </>
         )
     }
 }

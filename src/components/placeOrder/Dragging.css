@@ -1,3 +1,8 @@
-.kek {
-    z-index: 100;
+.react-grid-layout {
+    z-index: 101;
+    transition: 0.2s ease-in;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
 }

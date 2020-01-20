@@ -42,7 +42,7 @@ function selectComponentWrapper( props ) {
 }
 
 
-const alphaExample = () => (
+const alphaExample = ( props ) => (
         <Form
             onSubmit={onSubmit}
             render={({ handleSubmit, form, submitting, pristine, values}) => (
@@ -99,7 +99,7 @@ const alphaExample = () => (
                     <div className={classes.ButtonPart}>
                         <p></p>
                         <Button caption="Send" type='submit'/>
-                        <Button caption="Close" btnSelector="btnDisabled"/>
+                        <Button caption="Close" btnSelector="btnDisabled" clicked={props.modalClosed}/>
                     </div>
             </form>
         )}

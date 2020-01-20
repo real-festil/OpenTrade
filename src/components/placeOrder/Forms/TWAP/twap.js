@@ -60,7 +60,7 @@ function selectComponentWrapper( props ) {
                     containerWidth={props.containerWidth} />)
 }
 
-const twap = () => (
+const twap = ( props ) => (
         <Form
             onSubmit={onSubmit}
             render={({ handleSubmit, form, submitting, pristine, values}) => (
@@ -223,7 +223,7 @@ const twap = () => (
                     </div>
                     <div className={classes.ButtonPart}>
                         <Button caption="Send" type='submit'/>
-                        <Button caption="Close" btnSelector="btnDisabled"/>
+                        <Button caption="Close" btnSelector="btnDisabled" clicked={props.modalClosed}/>
                     </div>
                 </form>
             )}
