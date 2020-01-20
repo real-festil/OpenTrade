@@ -1,11 +1,18 @@
 import React from 'react';
 import classes from './input.module.css';
 
-const input = ( props ) => (
-    <div className={classes.InputBox}>
-        <img src="https://image.flaticon.com/icons/svg/44/44948.svg" />
-        <input onChange={props.changed} value={props.value} className={classes.Input} placeholder={props.placeholder} type={props.type} />
-    </div>
-)
+const input = ( props ) => {
+    return (
+        <input className={classes.Input}
+               name={props.name}
+               placeholder={props.placeholder}
+               defaultValue={props.defaultValue}
+               value={props.value}
+               onChange={props.changed}
+               type={props.type}
+               style={props.style}
+               required></input>
+    )
+}
 
 export default input;

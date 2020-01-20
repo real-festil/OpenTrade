@@ -1,32 +1,32 @@
 .Input {
     width: 80%;
+    height: 10px;
     padding: 10px;
-    border: 1px solid white;
-    border-radius: 0 5px 5px 0;
+    border: 2px solid #37373c;
+    border-radius: 5px;
     transition: 0.2s ease;
+    margin-bottom: 10px;
+    background-color: #202028;
+    color: white;
+}
+
+.Input::-webkit-outer-spin-button,
+.Input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.Input::placeholder {
+    color:#37373c;
+    font-size: 12px;
 }
 
 .Input:hover {
-    border: 1px solid gray;
+    border: 2px solid gray;
 }
 
-.Input:focus{
+.Input:focus {
     outline: none;
-    border: 1px solid gray;
-    box-shadow: 0px 0px 8px #20a8d8;
-}
-
-.InputBox {
-    display: flex;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.InputBox img {
-    width: 30px;
-    border: 1px solid gray;
-    height: 35px;
-    background-color: #23282c;
-    border-radius: 5px 0 0 5px;
-    padding:0 7px;
+    border: 2px solid gray;
+    box-shadow: 0px 0px 15px #20a8d8;
 }

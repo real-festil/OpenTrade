@@ -19,4 +19,20 @@
   background-color: #48b5f0;
   cursor: pointer;
 }
+
+.ButtonDisabled {
+  width: 85px;
+  height: 33px;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  background-color: #383846;
+  color: #bbb8b8;
+}
+
+.ButtonDisabled:enabled:hover {
+  cursor: pointer;
+}
 /*# sourceMappingURL=button.module.css.map */

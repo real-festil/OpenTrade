@@ -18,3 +18,19 @@
     background-color: rgb(72, 181, 240);
     cursor: pointer;
 }
+
+.ButtonDisabled {
+    width: 85px;
+    height: 33px;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    -webkit-transition: 0.3s ease;
+    transition: 0.3s ease;
+    background-color: #383846;
+    color: #bbb8b8;
+  }
+
+  .ButtonDisabled:enabled:hover {
+    cursor: pointer;
+  }

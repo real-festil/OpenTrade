@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import Input from '../../components/ui/input/input';
+import Input from '../../components/ui/loginInput/input';
 import Button from '../../components/ui/button/button';
 import classes from './login.module.css';
-import input from '../../components/ui/input/input';
+import manImage from '../../images/man.svg';
+import lockImage from '../../images/lock.svg';
 
 class Login extends Component {
     state = {
@@ -34,8 +35,7 @@ class Login extends Component {
 
     errorHandler = () => {
         setTimeout(() => {
-            if(this.state.username !== 'test' && this.state.password !== 'test')
-                this.setState({errormessage: 'Unknown username or password'});
+                this.setState({errormessage: 'Unknown username or password'})
             }, 0);
     }
 
@@ -48,8 +48,8 @@ class Login extends Component {
                 <h1>Login</h1>
                 <p>Sing in to your account</p>
                 <p>Username/password: <span className={classes.YellowText}>test/test</span></p>
-                <Input changed={this.userInputHandler} placeholder='Username' type='text' value={this.state.value}/>
-                <Input changed={this.passwordInputHandler} value={this.state.value} placeholder='Password' type='password'/>
+                <Input changed={this.userInputHandler} img={manImage} placeholder='Username' type='text' value={this.state.value}/>
+                <Input changed={this.passwordInputHandler} img={lockImage} value={this.state.value} placeholder='Password' type='password'/>
                 {pass}
                 <p>{this.state.errormessage}</p>
             </div>
