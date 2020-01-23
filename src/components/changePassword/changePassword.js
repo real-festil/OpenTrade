@@ -16,8 +16,6 @@ class changePassword extends Component {
         {i: 'a', x: 5, y: 0, w: 3, h: 2.2, minW: 2.8, maxW: Infinity, minH: 2.1, maxH: Infinity}
     ];
 
-
-
     onChangePassword = () => {
         this.setState({styles:{border: '1px solid red'}, errorMessage: 'Server unreachable'});
         console.log(this.state)

@@ -24,6 +24,8 @@ const priceMask = createNumberMask({
     decimalLimit: 5
 })
 
+console.log(priceMask)
+
 const required = value => (value ? undefined : 'Required')
 
 function selectComponentWrapper( props ) {

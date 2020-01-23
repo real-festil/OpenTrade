@@ -1,0 +1,59 @@
+.Wrapper {
+  z-index: 101;
+  position: absolute;
+  width: 315px;
+  height: 335px;
+  background-color: #292933;
+}
+
+.Draggable {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70px;
+  border-bottom: 1px solid #383846;
+  padding: 0 15px;
+}
+
+.Draggable img {
+  width: 15px;
+  cursor: pointer;
+}
+
+.Draggable div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 230px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.Draggable h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.ContentWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+}
+
+.Tree {
+  width: 100%;
+}
+
+.Result {
+  width: 100%;
+  height: 70px;
+}
+/*# sourceMappingURL=algoEditor.module.css.map */
