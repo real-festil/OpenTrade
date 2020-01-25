@@ -22,7 +22,7 @@
 
 .Draggable div {
     display: flex;
-    width: 230px;
+    width: 330px;
     justify-content: space-between;
 }
 
@@ -33,14 +33,33 @@
 
 .ContentWrapper {
     display: flex;
-    height: 100%;
+    height: calc(100% - 70px);
 }
 
 .Tree {
     width: 100%;
+
 }
 
-.Editor {
+.TreeView {
+    color: #9DA5B4;
+    font-size: 12px;
+    padding-left: 5px;
+}
+
+.TreeView:focus {
+    color: black
+}
+
+.TreeItem:focus {
+    background-color: black;
+
+}
+
+.TreeItem:focus{
+    background-color: black;
+    color: black;
+    font-style: italic;
 }
 
 .Result {

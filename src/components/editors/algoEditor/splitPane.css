@@ -47,3 +47,9 @@
   .Resizer.disabled:hover {
     border-color: transparent;
   }
+
+  .MuiTreeItem-root.Mui-focused {
+    color:black;
+    background-color: yellow;
+    outline: none;
+  }

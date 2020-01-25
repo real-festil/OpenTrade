@@ -30,7 +30,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 230px;
+  width: 330px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -45,11 +45,31 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
+  height: calc(100% - 70px);
 }
 
 .Tree {
   width: 100%;
+}
+
+.TreeView {
+  color: #9DA5B4;
+  font-size: 12px;
+  padding-left: 5px;
+}
+
+.TreeView:focus {
+  color: black;
+}
+
+.TreeItem:focus {
+  background-color: black;
+}
+
+.TreeItem:focus {
+  background-color: black;
+  color: black;
+  font-style: italic;
 }
 
 .Result {
