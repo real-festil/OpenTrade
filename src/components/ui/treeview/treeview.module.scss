@@ -1,0 +1,34 @@
+.Caption {
+    width: 100%;
+    padding: 5px;
+    font-size: 12px;
+    color: #9DA5D4;
+    margin: 0;
+}
+
+.Caption:hover {
+    background-color: black;
+    cursor: pointer;
+}
+
+.List {
+    list-style-type: none;
+    width: 100%;
+    padding: 2px;
+    font-size: 12px;
+    color: #9DA5D4;
+
+    margin: 0;
+}
+
+.List li {
+    padding-left: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+}
+
+.List li:hover{
+    background-color: black;
+    cursor: pointer;
+}
