@@ -4,6 +4,7 @@ import PlaceOrder from '../../components/placeOrder/placeOrder';
 import AlgoEditor from '../../components/editors/algoEditor/algoEditor';
 import RiskEditor from '../../components/editors/riskEditor/riskEditor';
 import Button from '../../components/ui/button/button';
+import Header from  '../../components/ui/header/header';
 
 
 class Dashboard extends Component {
@@ -34,11 +35,18 @@ class Dashboard extends Component {
         this.setState({showPlaceOrder: false, showChangePassword: false, showAlgo: false, showRisk: false})
     }
 
+    alertClickedHandler = () => {
+        alert('admin required')
+    }
+
     render() {
         return (
             <>
-                <p>dashboard</p>
-                <Button caption='Place order' clicked={this.placeOrderHandler}/>  <br/>
+                <Header caption='Dashboard'
+                    clicked={this.placeOrderHandler}
+                    changeClicked={this.changePasswordHandler}
+                    alertClicked={this.alertClickedHandler}
+                    algoClicked={this.algoHandler}/>
                 <Button caption='Change password' clicked={this.changePasswordHandler}/> <br/>
                 <Button caption='Algo' clicked={this.algoHandler} />
                 <Button caption='Risk' clicked={this.riskHandler} />

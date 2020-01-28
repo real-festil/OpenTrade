@@ -11,7 +11,6 @@ class Layout extends Component {
                     lightColor="#ffffff"
                     lightTextColor="#272b33"
                     darkTextColor="#ffffff"/> */}
-                <p>Layout</p>
                 {this.props.children}
             </div>
         );
