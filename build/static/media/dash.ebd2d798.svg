@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2019 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="210mm" height="297mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 21000 29700"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:#73818F;stroke-width:846.67;stroke-miterlimit:22.9256}
+    .str1 {stroke:#73818F;stroke-width:352.78;stroke-miterlimit:22.9256}
+    .fil0 {fill:none}
+    .fil1 {fill:#73818F}
+   ]]>
+  </style>
+ </defs>
+ <g id="Слой_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <path class="fil0 str0" d="M5671.38 24911.65c-3159.02,-1837.92 -5064.66,-5319.58 -4965.41,-9052.85 148.38,-5575.83 4658.04,-9979.27 10057.95,-9835.54 5399.91,143.72 9668.25,4781.18 9519.87,10357.01 -87.63,3293.79 -1723.39,6339.28 -4387.17,8159.28"/>
+  <line class="fil0 str0" x1="1054.14" y1="15852.3" x2="3229.64" y2= "15863.72" />
+  <line class="fil0 str0" x1="6351.7" y1="9486.01" x2="5059.81" y2= "7735.39" />
+  <line class="fil0 str0" x1="10359.15" y1="6332.63" x2="10365.78" y2= "8508.13" />
+  <line class="fil0 str0" x1="18199.43" y1="15549.79" x2="20374.93" y2= "15584.31" />
+  <line class="fil0 str0" x1="4082.59" y1="12257.99" x2="2030.58" y2= "11535.04" />
+  <line class="fil0 str0" x1="17486.77" y1="20046.17" x2="19581.94" y2= "20633.03" />
+  <line class="fil0 str0" x1="3891.74" y1="20050.16" x2="1796.56" y2= "20637.01" />
+  <line class="fil0 str0" x1="17024.39" y1="12395.41" x2="18923.06" y2= "11332.56" />
+  <line class="fil0 str0" x1="14676.61" y1="9310.42" x2="15968.5" y2= "7559.8" />
+  <g id="_2209240992976">
+   <polygon class="fil0 str1" points="15374.72,13171.36 15212.16,12903.58 10489.9,15815.02 10652.46,16082.8 "/>
+   <path class="fil1 str1" d="M11394.58 16307.84c0,-529.11 -417.79,-957.89 -932.81,-957.89 -515.02,0 -932.81,428.78 -932.81,957.89 0,529.11 417.79,957.89 932.81,957.89 515.02,0 932.81,-428.78 932.81,-957.89z"/>
+  </g>
+ </g>
+</svg>
