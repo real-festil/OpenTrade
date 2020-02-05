@@ -70,7 +70,8 @@ class PlaceOrder extends Component {
                         verticalCompact={false}
                         style={{
                             transform: this.props.show ? 'translateY(0)' : 'translateY(-100vh)',
-                            opacity: this.props.show ? '1' : '0'
+                            opacity: this.props.show ? '1' : '0',
+                            zIndex: '101'
                         }}
                         isResizable={true}>
                 <div key="a" className={classes.Draggable}>

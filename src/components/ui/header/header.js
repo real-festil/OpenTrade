@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import classes from './header.module.css'
-import crossImage from '../../../images/cross.svg';
+import bellImage from '../../../images/bell.svg';
+import settingsImage from '../../../images/settings.svg';
+import editorImage from '../../../images/editor.svg';
 import Button from '../button/button';
 import Select from '../iconSelect/iconSelect';
 
@@ -60,7 +62,7 @@ class Header extends Component{
         return (
             <div className={classes.Header}>
                 <div className={classes.Left}>
-                    <div className={classes.Sandwich}>
+                    <div className={classes.Sandwich} onClick={this.props.sidedrawerClicked}>
                         <div></div>
                         <div></div>
                         <div></div>
@@ -69,10 +71,10 @@ class Header extends Component{
                 </div>
                 <div className={classes.Right}>
                     <div className={classes.Settings}>
-                        <img src={crossImage} alt=''/>
+                        <img src={settingsImage} alt=''/>
                         <div className={classes.Select}>
                             <Select
-                                background={crossImage}
+                                background={settingsImage}
                                 width='0px'
                                 menuWidth='240px'
                                 options={this.options}
@@ -80,12 +82,12 @@ class Header extends Component{
                         </div>
                     </div>
                     <Button caption='Place Order' clicked={this.props.clicked} style={{width: '100px'}}/>
-                    <img src={crossImage} alt='' onClick={this.props.algoClicked}/>
+                    <img src={editorImage} alt='' onClick={this.props.algoClicked}/>
                     <div className={classes.Settings}>
-                        <img src={crossImage} alt=''/>
+                        <img src={bellImage} alt=''/>
                         <div className={classes.Select}>
                             <Select
-                                background={crossImage}
+                                background={bellImage}
                                 width='0px'
                                 menuWidth='240px'
                                 options={this.groupedOptions}

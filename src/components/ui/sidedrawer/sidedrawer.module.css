@@ -1,0 +1,137 @@
+.Sidedrawer {
+  width: 80px;
+  height: calc(100vh - 55px);
+  background-color: #424352;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  font-size: 14px;
+  z-index: 100;
+}
+
+.ButtonWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  z-index: 102;
+}
+
+.ButtonWrapperOpen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ButtonWrapperOpen div {
+  background-color: #424352;
+}
+
+.ButtonWrapper img {
+  width: 15px;
+  height: 45px;
+}
+
+.ButtonWrapperOpen img {
+  width: 15px;
+  height: 45px;
+  margin: 0 10px;
+}
+
+.Caption {
+  margin: 0;
+}
+
+.ButtonWrapper div {
+  background-color: #424352;
+  position: absolute;
+  left: 50px;
+  height: 45px;
+  width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-left: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 102;
+}
+
+.ButtonWrapper:hover div {
+  background: -webkit-gradient(linear, left top, right top, from(#22ADF6), to(#7A65F2));
+  background: linear-gradient(90deg, #22ADF6, #7A65F2);
+  z-index: 103;
+}
+
+.ButtonWrapper:hover {
+  overflow: visible;
+  background: #22ADF6;
+}
+
+.Sidedrawer a:visited {
+  text-decoration: none;
+  color: white;
+}
+
+.Sidedrawer a:active {
+  text-decoration: none;
+  color: white;
+}
+
+.ControlWrapper {
+  position: absolute;
+  bottom: 45px;
+  cursor: pointer;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.Control {
+  position: relative;
+  top: 45px;
+  margin-left: -50px;
+}
+
+.Control p {
+  margin: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Expand {
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  position: absolute;
+  bottom: 0;
+  background: #24282c;
+  width: 50px;
+  height: 45px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.Expand img {
+  width: 10px;
+  height: 45px;
+}
+/*# sourceMappingURL=sidedrawer.module.css.map */

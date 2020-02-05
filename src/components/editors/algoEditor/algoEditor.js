@@ -131,7 +131,8 @@ class AlgoEditor extends PureComponent {
                     isResizable={true}
                     style={{
                         transform: this.props.show ? 'translateY(0)' : 'translateY(-150vh)',
-                        opacity: this.props.show ? '1' : '0'
+                        opacity: this.props.show ? '1' : '0',
+                        zIndex: "101"
                     }}>
                         <div key='a' className={classes.Wrapper}>
                             <div className='Handler'>

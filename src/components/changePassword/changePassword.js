@@ -4,6 +4,7 @@ import GridLayout from 'react-grid-layout';
 import Button from '../ui/button/button';
 import Backdrop from '../ui/backdrop/backdrop';
 import './changePassword.css';
+import '../placeOrder/Dragging.css';
 import crossImage from '../../images/cross.svg';
 
 class changePassword extends Component {
@@ -30,7 +31,8 @@ class changePassword extends Component {
                 layout={this.layout}
                 style={{
                     transform: this.props.show ? 'translateY(0)' : 'translateY(-150vh)',
-                    opacity: this.props.show ? '1' : '0'
+                    opacity: this.props.show ? '1' : '0',
+                    zIndex: '101'
                 }}
                 width={1200}
                 verticalCompact={false}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Select from 'react-select';
+import {default as Select} from 'react-select';
 import './Select.css';
 
 const select = ( props ) => {
@@ -54,6 +54,23 @@ const select = ( props ) => {
         placeholder: () => ({
             color: "#555555",
             marginBottom: 5
+        }),
+        multiValue: () => ({
+         border: '1px solid #163c68',
+         display: 'flex',
+         alignItems: 'center',
+         marginRight: 5,
+         backgroundColor: "rgba(0, 126, 255, 0.08)",
+         marginTop: -4.5
+        }),
+        multiValueLabel: () => ({
+         color: '#22ADF6',
+         fontSize: 10,
+         padding: 2
+        }),
+        multiValueRemove: (provided, {isFocused, isSelected, isHovered}) => ({
+         backgroundColor: isHovered ? "rgba(0, 126, 255, 0.08)" : null,
+         border: '1px solid #163c68'
         })
     }
 
@@ -62,6 +79,7 @@ const select = ( props ) => {
                 name={props.name}
                 styles={customStyles}
                 style={props.style}
+                isMulti={props.isMulti}
                 className='react-select-container'
                 classNamePrefix="react-select"
                 defaultValue={props.value}

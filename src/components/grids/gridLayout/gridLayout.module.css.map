@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,YAAY,CAAC;EACZ,gBAAgB,EAAE,IAAI;EACtB,KAAK,EAAC,KACP;CAAC",
+    "sources": [
+        "gridLayout.module.scss"
+    ],
+    "names": [],
+    "file": "gridLayout.module.css"
+}

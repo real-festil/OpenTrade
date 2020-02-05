@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,MAAM,CAAC;EACH,gBAAgB,EAAE,OAAO;CAC5B",
+    "sources": [
+        "PL.module.scss"
+    ],
+    "names": [],
+    "file": "PL.module.css"
+}

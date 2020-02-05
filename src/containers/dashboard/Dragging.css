@@ -1,0 +1,52 @@
+.grid {
+ width: 100%;
+ height: 100%;
+ display: flex;
+ z-index: 0;
+}
+
+.tables {
+ width:100%;
+ position: relative;
+ overflow-y: scroll;
+ overflow-x: hidden;
+ z-index: 0;
+}
+
+.react-grid-layout {
+ z-index: 0;
+ transition: 0.2s ease-in;
+ position: absolute;
+ height: 100%;
+ width: 100%;
+}
+
+.react-grid-item {
+ z-index: 0;
+ transition: all 200ms ease;
+ transition-property: left, top;
+}
+
+.react-grid-item.react-grid-placeholder {
+ background: red;
+ opacity: 0.2;
+ transition-duration: 100ms;
+ z-index: 2;
+ -webkit-user-select: none;
+ -moz-user-select: none;
+ -ms-user-select: none;
+ -o-user-select: none;
+ user-select: none;
+}
+
+.DragHandle {
+ height: 42px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.DragHandle p {
+ margin-left: 5px;
+ font-size: 12px;
+}
