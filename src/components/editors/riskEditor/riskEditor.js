@@ -131,6 +131,7 @@ class AlgoEditor extends PureComponent {
                     verticalCompact={false}
                     isResizable={true}
                     style={{
+                        zIndex: 101,
                         transform: this.props.show ? 'translateY(0)' : 'translateY(-150vh)',
                         opacity: this.props.show ? '1' : '0'
                     }}>
@@ -186,10 +187,6 @@ class AlgoEditor extends PureComponent {
                                                 />
                                         </div>
                                     </SplitPane>
-                                    {/* <div initialSize='100px'  minSize='30px'>
-                                        {this.state.debug}
-                                    </div>
-                                </SplitPane> */}
                             </div>
 
                         </div>

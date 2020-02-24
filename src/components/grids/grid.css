@@ -1,0 +1,69 @@
+.react-grid-Grid {
+  border: none !important;
+  font-size: 12px !important;
+  font-weight: normal !important;
+  color: white !important;
+  width: 100% !important;
+  background-color: #31313d !important;
+  height: 100% !important;
+}
+
+.react-grid-Container {
+  color: black !important;
+  height: calc(100% - 42px) !important;
+
+}
+
+.react-grid-Main {
+  background-color: #31313d !important;
+  outline: none !important;
+  height: 100% !important;
+}
+
+.react-grid-Canvas {
+  background-color: #31313d !important;
+  height: 100% !important;
+}
+
+.react-grid-HeaderCell {
+  padding: 0 !important;
+  text-align: left !important;
+  background-color: #434453 !important;
+  border: none !important;
+}
+
+.widget-HeaderCell__value {
+  margin: 0 7px !important;
+  position: relative !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
+.react-grid-Row {
+  background: #292933 !important;
+}
+
+.react-grid-Row--even {
+  background: #31313d !important;
+}
+
+.react-grid-Row:hover {
+  background: #0a0a0e !important;
+}
+
+.react-grid-HeaderRow {
+  width: calc(100% + 12px) !important;
+  background: #434453 !important;
+}
+
+.react-grid-Cell {
+  border: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+  border-right: 1px solid #383846 !important;
+  border-bottom: 1px solid #383846 !important;
+}
+
+.react-grid-Cell__value {
+  margin: 0 7px !important;
+}

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,YAAY,CAAC;EACX,gBAAgB,EAAE,OAAO;EACzB,KAAK,EAAE,KAAK;CACb;;AAED,AAAA,KAAK,CAAC;EACJ,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;EACb,gBAAgB,EAAE,OAAO;CAC1B;;AAED,AAAA,QAAQ,CAAC;EACP,YAAY,EAAE,IAAI;CACnB",
+    "sources": [
+        "risk.module.scss"
+    ],
+    "names": [],
+    "file": "risk.module.css"
+}

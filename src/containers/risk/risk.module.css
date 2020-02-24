@@ -1,0 +1,15 @@
+.Placeholder {
+  background-color: #292933;
+  color: white;
+}
+
+.Tree {
+  width: 190px;
+  height: 100vh;
+  background-color: #292933;
+}
+
+.SubTree {
+  padding-left: 25px;
+}
+/*# sourceMappingURL=risk.module.css.map */

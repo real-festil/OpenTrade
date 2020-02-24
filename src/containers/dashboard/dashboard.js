@@ -12,10 +12,20 @@ import classes from './dashboard.module.css';
 import gridLayout from '../../components/grids/gridLayout/gridLayout';
 import './Dragging.css';
 import Overview from '../../components/grids/overview/overview';
+import MarketWatch from '../../components/grids/marketWatch/marketWatch';
+import OrderDepth from '../../components/grids/orderDepth/orderDepth';
 import Select from '../../components/ui/select/select';
-// import Pl from '../../components/grids//PL/PL';
+import IconSelect from '../../components/ui/iconSelect/iconSelect';
+import ColumnsImg from '../../images/columns.svg';
+import LastGrid from '../../components/grids/lastGrid/lastGrid';
+import Pl from '../../components/grids/PL/PL';
+import * as zoom from 'chartjs-plugin-zoom'
+import FullScreen from 'react-full-screen';
+import { WithSize } from 'react-sizeme';
+import SizeMe from './sizeMe';
+import IntraDay from '../../components/grids/intraDays'
 
-const GridLayout = WidthProvider(RGL);
+const GridLayout = SizeMe(RGL);
 
 
 class Dashboard extends Component {
@@ -24,7 +34,8 @@ class Dashboard extends Component {
         showChangePassword: false,
         showAlgo: false,
         showRisk: false,
-        showSidedrawer: true
+        showSidedrawer: true,
+        isFullscreen: false
     }
 
     placeOrderHandler = () => {
@@ -53,10 +64,6 @@ class Dashboard extends Component {
         }
     }
 
-    kek = () => {
-        alert('kek')
-    }
-
     modalClosedHandler = () => {
         this.setState({showPlaceOrder: false, showChangePassword: false, showAlgo: false, showRisk: false})
     }
@@ -65,12 +72,29 @@ class Dashboard extends Component {
         alert('admin required')
     }
 
+    onFullscreenHandler = () => {
+      this.setState({isFullscreen: true})
+    }
+
+    onLogout = () => {
+      let promise = new Promise(( resolve ) => {
+        resolve(this.setState({isLogged: false}));
+      });
+      promise.then (
+        result => {
+          localStorage.setItem('isLogged', this.state.isLogged);
+          window.location.reload();
+        }
+      )
+    }
+
     layout = [
-        {i: 'a', x: 0, y: 0, w: 5 , h: 4, minW: 1, maxW: Infinity, minH: 0.5, maxH: Infinity},
-        {i: 'b', x: 5, y: 0, w: 7 , h: 4, minW: 1, maxW: Infinity, minH: 0.5, maxH: Infinity},
-        {i: 'c', x: 0, y: 2, w: 2 , h: 4, minW: 1, maxW: Infinity, minH: 0.5, maxH: Infinity},
-        {i: 'd', x: 2, y: 2, w: 4 , h: 4, minW: 1, maxW: Infinity, minH: 0.5, maxH: Infinity},
-        {i: 'e', x: 6, y: 2, w: 6 , h: 4, minW: 1, maxW: Infinity, minH: 0.5, maxH: Infinity},
+        {i: 'c', x: 0, y: 0, w: 3 , h: 4, minW: 1, maxW: Infinity, minH: 0.5, maxH: Infinity},
+        {i: 'b', x: 3, y: 0, w: 5 , h: 4, minW: 1, maxW: Infinity, minH: 0.5, maxH: Infinity},
+        {i: 'a', x: 8, y: 0, w: 4 , h: 4, minW: 1, maxW: Infinity, minH: 0.5, maxH: Infinity},
+        {i: 'd', x: 0, y: 2, w: 2 , h: 4, minW: 1, maxW: Infinity, minH: 0.5, maxH: Infinity},
+        {i: 'e', x: 2, y: 2, w: 5 , h: 4, minW: 1, maxW: Infinity, minH: 0.5, maxH: Infinity},
+        {i: 'f', x: 7, y: 2, w: 5 , h: 4, minW: 1, maxW: Infinity, minH: 0.5, maxH: Infinity},
     ]
 
     onWidthChanged = () => {
@@ -87,6 +111,33 @@ class Dashboard extends Component {
      {value: 'KGI', label: 'KGI'}
     ]
 
+    sourceOptions = [
+     {value: 'MS', label: 'ms'},
+     {value: 'KGI', label: 'kgi'}
+    ]
+
+    securityOptions = [
+     {value: 'none', label: 'server is unreachable'}
+    ]
+
+    netOptions = [
+      {value: 'Net', label: 'Net'},
+      {value: 'Realized', label: 'Realized'},
+      {value: 'Unrealized', label: 'Unrealized'},
+      {value: 'Commission', label: 'Commission'},
+      {value: 'Real-Com', label: 'Real-Com'}
+    ]
+
+    timeOptions =  [
+      {value: 'All', label: 'All'},
+      {value: '3d', label: '3d'},
+      {value: '1d', label: '1d'},
+      {value: '12h', label: '12h'},
+      {value: '6h', label: '6h'},
+      {value: '3h', label: '3h'},
+      {value: '1h', label: '1h'},
+    ]
+
     render() {
         return (
             <>
@@ -97,7 +148,8 @@ class Dashboard extends Component {
                     alertClicked={this.alertClickedHandler}
                     algoClicked={this.algoHandler}/>
                 <div className='grid'>
-                    <Sidedrawer showSidedrawer={this.state.showSidedrawer}/>
+                    <Sidedrawer showSidedrawer={this.state.showSidedrawer} LogOut={this.onLogout}/>
+
                     <div className='tables' style={{transform: this.state.showSidedrawer ? 'translateX(0)' : 'translateX(-50px)',
                                                     transition: '0.3s ease-out',
                                                     height: this.state.showSidedrawer ? null : '100%',
@@ -106,12 +158,17 @@ class Dashboard extends Component {
                                                     width: this.state.showSidedrawer ? '100%' : 'calc(100% + 50px)'}}>
                         <GridLayout
                                 cols={12}
-                                rowHeight={100}
+                                rowHeight={81}
                                 onResizeStop={this.onWidthChanged}
                                 useCSSTransforms={false}
                                 draggableHandle='.DragHandle'
                                 layout={this.layout}>
-                                    <div className={classes.Placeholder} key='c'></div>
+                                    <div className={classes.Placeholder} key='d'>
+                                     <div className='DragHandle'>
+                                      <p>Order Depth:</p>
+                                     </div>
+                                     <OrderDepth/>
+                                    </div>
                                     <div className={classes.Placeholder} key='a'>
                                       <div className='DragHandle'>
                                         <p>Overview</p>
@@ -124,14 +181,70 @@ class Dashboard extends Component {
                                       </div>
                                        <Overview/>
                                      </div>
-                                    <div className={classes.Placeholder} key='b'>MarketWatch</div>
-                                    <div className={classes.Placeholder} key='d'>PL</div>
-                                    <div className={classes.Placeholder} key='e'>lastGrid</div>
+                                     <div className={classes.Placeholder} key='b'>
+                                      <FullScreen enabled={this.state.isFullscreen} onChange={isFullscreen => this.setState({isFullscreen})}>
+                                      <div className='DragHandle'>
+                                          <p style={{flex: '50%', width: '50px'}}>Instrument</p>
+                                          <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+                                            <img src={ColumnsImg} alt='' style={{marginRight: '20px', cursor: 'pointer'}} onClick={this.onFullscreenHandler}/>
+                                            <div style={{width: "35%"}}>
+                                                <Select
+                                                options={this.netOptions}
+                                                inputValue='Net'
+                                                width='400%'
+                                                containerWidth='18%'/>
+                                            </div>
+                                            <div style={{width: "35%"}}>
+                                              <Select
+                                              options={this.timeOptions}
+                                              inputValue='1d'
+                                              width='400%'
+                                              containerWidth='18%'/>
+                                            </div>
+                                          </div>
+
+                                        </div>
+                                        <IntraDay/>
+                                        </FullScreen>
+                                    </div>
+                                    <div className={classes.Placeholder} key='c'>
+                                      <MarketWatch/>
+                                     </div>
+                                    <div className={classes.Placeholder} key='e'>
+                                      <FullScreen enabled={this.state.isFullscreen} onChange={isFullscreen => this.setState({isFullscreen})}>
+                                      <div className='DragHandle'>
+                                          <p style={{flex: '50%', width: '50px'}}>P&L in USD</p>
+                                          <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+                                            <img src={ColumnsImg} alt='' style={{marginRight: '20px', cursor: 'pointer'}} onClick={this.onFullscreenHandler}/>
+                                            <div style={{width: "35%"}}>
+                                                <Select
+                                                options={this.netOptions}
+                                                inputValue='Net'
+                                                width='400%'
+                                                containerWidth='18%'/>
+                                            </div>
+                                            <div style={{width: "35%"}}>
+                                              <Select
+                                              options={this.timeOptions}
+                                              inputValue='1d'
+                                              width='400%'
+                                              containerWidth='18%'/>
+                                            </div>
+                                          </div>
+
+                                        </div>
+                                        <Pl/>
+                                        </FullScreen>
+                                    </div>
+
+                                    <div className={classes.Placeholder} key='f'>
+                                      <LastGrid/>
+                                    </div>
                         </GridLayout>
 
                     </div>
                 </div>
-                {/* <Pl/> */}
+
                 {/* <Button caption='Change password' clicked={this.changePasswordHandler}/> <br/>
                 <Button caption='Algo' clicked={this.algoHandler} />
                 <Button caption='Risk' clicked={this.riskHandler} /> */}

@@ -2,7 +2,7 @@ import React from 'react';
 import DataGrid, {valueCellContentRenderer} from 'react-data-grid';
 import Wrapper from '../Wrapper.js';
 import classes from './overview.module.css';
-import './grid.css';
+import '../grid.css';
 
 const defaultColumnProperties = {
  resizable: true,
@@ -14,7 +14,7 @@ const defaultRowProperties = {
 }
 
 const columns = [
- {key: 'Acc', name: 'Acc/Symbol/Algo'},
+ {key: 'Acc', name: 'Acc / Symbol / Algo'},
  {key: 'State', name: 'State'},
  {key: 'Time0', name: 'Time0'},
  {key: 'Time', name: 'Time'},
@@ -53,6 +53,8 @@ const rows = [
  {Acc: 'Some Data', State: 'Some Data', Time0: 'Some Data', Time: 'Some Data', Bought: 'Some Data', Working: 'Some Data', Position: 'Some Data', Sold: 'Some Data', Desire: 'Some Data', Desc: 'Some Data'},
  {Acc: 'Some Data', State: 'Some Data', Time0: 'Some Data', Time: 'Some Data', Bought: 'Some Data', Working: 'Some Data', Position: 'Some Data', Sold: 'Some Data', Desire: 'Some Data', Desc: 'Some Data'},
 ].map( r => ({ ...r, ...defaultRowProperties}));
+
+
 
 const cell = {
  height: 27
