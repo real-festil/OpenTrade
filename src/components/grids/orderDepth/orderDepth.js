@@ -1,6 +1,7 @@
 import React from 'react';
 import DataGrid, {valueCellContentRenderer} from 'react-data-grid';
 import '../grid.css';
+import {connect} from "react-redux";
 
 const defaultColumnProperties = {
  resizable: true,
@@ -33,6 +34,7 @@ const onWidthChanged = () => {
 
 const orderDepth = ( props ) => {
  return (
+  <div className={props.isDark ? null : props.isBlue ? "BlueTheme" : "WhiteTheme"} style={{height: "100%"}}>
    <DataGrid
      columns={columns}
      onWidthChanged={onWidthChanged}
@@ -42,8 +44,15 @@ const orderDepth = ( props ) => {
      minHeight={50}
      defaultCellContentRenderer={valueCellContentRenderer}
      ></DataGrid>
-
+  </div>
 );
 }
 
-export default orderDepth;
+const mapStateToProps = (state) => {
+ return {
+   isDark: state.theme === "dark" ? true : false,
+   isBlue: state.theme === "blue" ? true : false
+ }
+}
+
+export default connect(mapStateToProps)(orderDepth);

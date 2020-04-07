@@ -1,49 +1,53 @@
 .Header {
-    width: 100%;
-    height: 55px;
-    background-color: black;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 100%;
+  height: 55px;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Header--Light {
+  background-color: white;
 }
 
 .Header h1 {
-    margin: 0;
-    font-size: 18px;
+  margin: 0;
+  font-size: 18px;
 }
 
 .Header img {
-    width: 20px;
-    display: block;
-    cursor: pointer;
+  width: 20px;
+  display: block;
+  cursor: pointer;
 }
 
 .Sandwich {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .Sandwich div {
-    width: 18px;
-    height: 2px;
-    background-color: #73818f;
-    margin: 4px 20px;
+  width: 18px;
+  height: 2px;
+  background-color: #73818f;
+  margin: 4px 20px;
 }
 
 .Left {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .Right {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .Right > * {
-    margin: 0 10px;
+  margin: 0 10px;
 }
 
 .Select {
-    position: absolute;
-    top: 10px;
+  position: absolute;
+  top: 10px;
 }

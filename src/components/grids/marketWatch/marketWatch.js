@@ -4,6 +4,7 @@ import '../grid.css';
 import Select from '../../ui/select/select';
 import FilterSelect from '../../ui/filterSelect/filterSelect';
 import ColumnsImg from '../../../images/columns.svg';
+import {connect} from "react-redux";
 
 const defaultColumnProperties = {
  resizable: true,
@@ -123,7 +124,7 @@ class MarketWatch extends Component{
 
   return (
    <>
-    <div className='DragHandle'>
+    <div className={this.props.isDark ? "DragHandle" : this.props.isBlue ? "BlueDragHandle" : "WhiteDragHandle"}>
        <p style={{flex: '50%'}}>Market Watch</p>
        <Select
          options={sourceOptions}
@@ -135,7 +136,7 @@ class MarketWatch extends Component{
          inputValue='add security to watch'
          width='96%'
          containerWidth='28%'/>
-       <div className='DragHandle__img' style={{background: this.state.show ? 'linear-gradient(90deg, #00c9ff, #22adf6)' : null}}>
+       <div className={this.props.isDark ? "DragHandle__img" : this.props.isBlue ? "BlueDragHandle__img" : "WhiteDragHandle__img"} style={{background: this.state.show ? 'linear-gradient(90deg, #00c9ff, #22adf6)' : null}}>
           <img src={ColumnsImg} alt='' onClick={this.ColumnsHandler}/>
           <FilterSelect caption='Columns' show={this.state.show}>
             {columns.map(column => (
@@ -144,19 +145,27 @@ class MarketWatch extends Component{
           </FilterSelect>
         </div>
     </div>
-   <DataGrid
-     columns={arr}
-     onWidthChanged={onWidthChanged}
-     rowGetter={i => rows[i]}
-     rowsCount={2}
-     rowHeight={27}
-     minHeight={50}
-     defaultCellContentRenderer={valueCellContentRenderer}
-     />
+    <div className={this.props.isDark ? null : this.props.isBlue ? "BlueTheme" : "WhiteTheme"} style={{height: "100%"}}>
+     <DataGrid
+       columns={arr}
+       onWidthChanged={onWidthChanged}
+       rowGetter={i => rows[i]}
+       rowsCount={2}
+       rowHeight={27}
+       minHeight={50}
+       defaultCellContentRenderer={valueCellContentRenderer}
+       />
+     </div>
    </>
-
   );
  }
 }
 
-export default MarketWatch;
+const mapStateToProps = (state) => {
+ return {
+   isDark: state.theme === "dark" ? true : false,
+   isBlue: state.theme === "blue" ? true : false
+ }
+}
+
+export default connect(mapStateToProps)(MarketWatch);

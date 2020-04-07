@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as zoom from 'chartjs-plugin-zoom'
 import LoginClasses from '../../containers/login/login.module.css';
 
 class Layout extends Component {

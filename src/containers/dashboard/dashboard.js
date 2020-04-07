@@ -22,11 +22,13 @@ import Pl from '../../components/grids/PL/PL';
 import * as zoom from 'chartjs-plugin-zoom'
 import FullScreen from 'react-full-screen';
 import { WithSize } from 'react-sizeme';
+import fullscreenImage from '../../images/fullscreen.svg';
+import fullscreenGrayImage from '../../images/fullscreenGray.svg';
 import SizeMe from './sizeMe';
-import IntraDay from '../../components/grids/intraDays'
+import IntraDay from '../../components/grids/intraDays/index.js';
+import {connect} from "react-redux";
 
 const GridLayout = SizeMe(RGL);
-
 
 class Dashboard extends Component {
     state = {
@@ -35,7 +37,8 @@ class Dashboard extends Component {
         showAlgo: false,
         showRisk: false,
         showSidedrawer: true,
-        isFullscreen: false
+        isFullscreen: false,
+        isFullscreenRealTime: false
     }
 
     placeOrderHandler = () => {
@@ -76,6 +79,10 @@ class Dashboard extends Component {
       this.setState({isFullscreen: true})
     }
 
+    onFullscreenRealTiimeHandler = () => {
+      this.setState({isFullscreenRealTime: true})
+    }
+
     onLogout = () => {
       let promise = new Promise(( resolve ) => {
         resolve(this.setState({isLogged: false}));
@@ -89,9 +96,9 @@ class Dashboard extends Component {
     }
 
     layout = [
-        {i: 'c', x: 0, y: 0, w: 3 , h: 4, minW: 1, maxW: Infinity, minH: 0.5, maxH: Infinity},
-        {i: 'b', x: 3, y: 0, w: 5 , h: 4, minW: 1, maxW: Infinity, minH: 0.5, maxH: Infinity},
-        {i: 'a', x: 8, y: 0, w: 4 , h: 4, minW: 1, maxW: Infinity, minH: 0.5, maxH: Infinity},
+        {i: 'c', x: 0, y: 0, w: 6 , h: 4, minW: 1, maxW: Infinity, minH: 0.5, maxH: Infinity},
+        {i: 'b', x: 3, y: 4, w: 12 , h: 7.2, minW: 1, maxW: Infinity, minH: 0.5, maxH: Infinity},
+        {i: 'a', x: 6, y: 0, w: 6 , h: 4, minW: 1, maxW: Infinity, minH: 0.5, maxH: Infinity},
         {i: 'd', x: 0, y: 2, w: 2 , h: 4, minW: 1, maxW: Infinity, minH: 0.5, maxH: Infinity},
         {i: 'e', x: 2, y: 2, w: 5 , h: 4, minW: 1, maxW: Infinity, minH: 0.5, maxH: Infinity},
         {i: 'f', x: 7, y: 2, w: 5 , h: 4, minW: 1, maxW: Infinity, minH: 0.5, maxH: Infinity},
@@ -139,6 +146,8 @@ class Dashboard extends Component {
     ]
 
     render() {
+        const dragHandleName = this.props.isDark ? "DragHandle" : this.props.isBlue ? "BlueDragHandle" : "WhiteDragHandle";
+        console.log(this.props.isDark)
         return (
             <>
                 <Header caption='Dashboard'
@@ -147,7 +156,7 @@ class Dashboard extends Component {
                     changeClicked={this.changePasswordHandler}
                     alertClicked={this.alertClickedHandler}
                     algoClicked={this.algoHandler}/>
-                <div className='grid'>
+                <div className='grid' style={{backgroundColor: this.props.isDark ? null : this.props.isBlue ? "rgb(44, 61, 99)" : "#e3e4e5"}}>
                     <Sidedrawer showSidedrawer={this.state.showSidedrawer} LogOut={this.onLogout}/>
 
                     <div className='tables' style={{transform: this.state.showSidedrawer ? 'translateX(0)' : 'translateX(-50px)',
@@ -161,16 +170,16 @@ class Dashboard extends Component {
                                 rowHeight={81}
                                 onResizeStop={this.onWidthChanged}
                                 useCSSTransforms={false}
-                                draggableHandle='.DragHandle'
+                                draggableHandle={'.'+dragHandleName}
                                 layout={this.layout}>
                                     <div className={classes.Placeholder} key='d'>
-                                     <div className='DragHandle'>
+                                     <div className={dragHandleName}>
                                       <p>Order Depth:</p>
                                      </div>
                                      <OrderDepth/>
                                     </div>
                                     <div className={classes.Placeholder} key='a'>
-                                      <div className='DragHandle'>
+                                      <div className={dragHandleName}>
                                         <p>Overview</p>
                                         <Select
                                          options={this.options}
@@ -182,40 +191,26 @@ class Dashboard extends Component {
                                        <Overview/>
                                      </div>
                                      <div className={classes.Placeholder} key='b'>
-                                      <FullScreen enabled={this.state.isFullscreen} onChange={isFullscreen => this.setState({isFullscreen})}>
-                                      <div className='DragHandle'>
-                                          <p style={{flex: '50%', width: '50px'}}>Instrument</p>
+                                      <FullScreen enabled={this.state.isFullscreenRealTime} onChange={isFullscreenRealTime => this.setState({isFullscreenRealTime})}>
+                                        <div className={dragHandleName}>
+                                          <p style={{flex: '50%', width: '50px'}}>Real time price</p>
                                           <div style={{display: 'flex', justifyContent: 'flex-end'}}>
-                                            <img src={ColumnsImg} alt='' style={{marginRight: '20px', cursor: 'pointer'}} onClick={this.onFullscreenHandler}/>
-                                            <div style={{width: "35%"}}>
-                                                <Select
-                                                options={this.netOptions}
-                                                inputValue='Net'
-                                                width='400%'
-                                                containerWidth='18%'/>
-                                            </div>
-                                            <div style={{width: "35%"}}>
-                                              <Select
-                                              options={this.timeOptions}
-                                              inputValue='1d'
-                                              width='400%'
-                                              containerWidth='18%'/>
-                                            </div>
+                                            <img src={this.props.isDark ? fullscreenGrayImage : this.props.isBlue ? fullscreenGrayImage : fullscreenImage} alt='' style={{marginRight: '20px', cursor: 'pointer'}} onClick={this.onFullscreenRealTimeHandler}/>
                                           </div>
 
                                         </div>
                                         <IntraDay/>
-                                        </FullScreen>
+                                      </FullScreen>
                                     </div>
                                     <div className={classes.Placeholder} key='c'>
                                       <MarketWatch/>
                                      </div>
                                     <div className={classes.Placeholder} key='e'>
                                       <FullScreen enabled={this.state.isFullscreen} onChange={isFullscreen => this.setState({isFullscreen})}>
-                                      <div className='DragHandle'>
+                                      <div className={dragHandleName}>
                                           <p style={{flex: '50%', width: '50px'}}>P&L in USD</p>
                                           <div style={{display: 'flex', justifyContent: 'flex-end'}}>
-                                            <img src={ColumnsImg} alt='' style={{marginRight: '20px', cursor: 'pointer'}} onClick={this.onFullscreenHandler}/>
+                                            <img src={this.props.isDark ? fullscreenGrayImage : this.props.isBlue ? fullscreenGrayImage : fullscreenImage} alt='' style={{marginRight: '20px', cursor: 'pointer'}} onClick={this.onFullscreenHandler}/>
                                             <div style={{width: "35%"}}>
                                                 <Select
                                                 options={this.netOptions}
@@ -257,4 +252,11 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+const mapStateToProps = (state) => {
+ return {
+   isDark: state.theme === "dark" ? true : false,
+   isBlue: state.theme === "blue" ? true : false
+ }
+}
+
+export default connect(mapStateToProps)(Dashboard);

@@ -13,6 +13,7 @@ import AlphaExample from './Forms/AplhaExample/alphaExample';
 import Twap from './Forms/TWAP/twap';
 import TwapPy from './Forms/TwapPy/twapPy';
 import MACrossing from './Forms//MACrossing/macrossing';
+import {connect} from "react-redux";
 
 class PlaceOrder extends Component {
     state = {
@@ -74,7 +75,7 @@ class PlaceOrder extends Component {
                             zIndex: '101'
                         }}
                         isResizable={true}>
-                <div key="a" className={classes.Draggable}>
+                <div key="a" className={this.props.isDark ? classes.Draggable : this.props.isBlue ? classes.Draggable : classes.WhiteDraggable}>
                     <div className='Handler'>
                         <div className={classes.Header}>
                             <div className={classes.HeaderGroup}>
@@ -96,4 +97,11 @@ class PlaceOrder extends Component {
     }
 }
 
-export default PlaceOrder;
+const mapStateToProps = (state) => {
+ return {
+   isDark: state.theme === "dark" ? true : false,
+   isBlue: state.theme === "blue" ? true : false
+ }
+}
+
+export default connect(mapStateToProps)(PlaceOrder);

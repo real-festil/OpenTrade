@@ -9,6 +9,7 @@ import Rejects from './rejects/rejects';
 import Positions from './positions/positions';
 import Trades  from './trades/trades';
 import Orders from './orders/orders';
+import {connect} from "react-redux";
 
 const defaultColumnProperties = {
  resizable: true,
@@ -121,7 +122,6 @@ class LastGrid extends Component{
    return column;
    })
   })
-  console.log(this.state)
  }
 
  ColumnsHandler = () => {
@@ -137,7 +137,6 @@ class LastGrid extends Component{
    case 'Trades': this.setState({tab: tab, columns: columnsTrades, show: false}); break;
    case 'Orders': this.setState({tab: tab, columns: columnsOrders, show: false}); break;
   }
-  console.log(this.state)
  }
 
  render() {
@@ -150,26 +149,26 @@ class LastGrid extends Component{
   }
   return (
    <>
-    <div className='DragHandle'>
+    <div className={this.props.isDark ? "DragHandle" : this.props.isBlue ? "BlueDragHandle" : "WhiteDragHandle"}>
        <div className={classes.Tabs}>
-        <div className={classes.Tab}
+        <div className={this.props.isDark ? classes.Tab : this.props.isBlue ? classes.BlueTab : classes.WhiteTab}
              onClick={() => this.changeTabHandler('Rejects')}
-             style={{background: this.state.tab === 'Rejects' ? '#434453' : null,
+             style={{background: this.state.tab === 'Rejects' ? (this.props.isDark ? '#434453' : this.props.isBlue ? '#0b124a': "#f9f9f9") : null,
                      height: this.state.tab === 'Rejects' ? '102%' : null}}>
               Rejects</div>
-        <div className={classes.Tab}
+        <div className={this.props.isDark ? classes.Tab : this.props.isBlue ? classes.BlueTab : classes.WhiteTab}
              onClick={() => this.changeTabHandler('Positions')}
-             style={{background: this.state.tab === 'Positions' ? '#434453' : null,
+             style={{background: this.state.tab === 'Positions' ? (this.props.isDark ? '#434453' : this.props.isBlue ? '#0b124a': "#f9f9f9") : null,
                      height: this.state.tab === 'Positions' ? '102%' : null}}>
              Positions</div>
-        <div className={classes.Tab}
+        <div className={this.props.isDark ? classes.Tab : this.props.isBlue ? classes.BlueTab : classes.WhiteTab}
              onClick={() => this.changeTabHandler('Trades')}
-             style={{background: this.state.tab === 'Trades' ? '#434453' : null,
+             style={{background: this.state.tab === 'Trades' ? (this.props.isDark ? '#434453' : this.props.isBlue ? '#0b124a': "#f9f9f9") : null,
                      height: this.state.tab === 'Trades' ? '102%' : null}}
              >Trades</div>
-        <div className={classes.Tab}
+        <div className={this.props.isDark ? classes.Tab : this.props.isBlue ? classes.BlueTab : classes.WhiteTab}
              onClick={() => this.changeTabHandler('Orders')}
-             style={{background: this.state.tab === 'Orders' ? '#434453' : null,
+             style={{background: this.state.tab === 'Orders' ? (this.props.isDark ? '#434453' : this.props.isBlue ? '#0b124a': "#f9f9f9") : null,
                      height: this.state.tab === 'Orders' ? '102%' : null}}
              Orders>Orders</div>
        </div>
@@ -178,7 +177,7 @@ class LastGrid extends Component{
          inputValue='add col to group'
          width='96%'
          containerWidth='28%'/>
-       <div className='DragHandle__img' style={{background: this.state.show ? 'linear-gradient(90deg, #00c9ff, #22adf6)' : null}}>
+       <div className={this.props.isDark ? 'DragHandle__img' : this.props.isBlue ? "BlueDragHandle__img" : 'WhiteDragHandle__img'} style={{background: this.state.show ? 'linear-gradient(90deg, #00c9ff, #22adf6)' : null}}>
           <img src={ColumnsImg} alt='' onClick={this.ColumnsHandler}/>
           <FilterSelect caption='Columns' show={this.state.show}>
             {this.state.columns.map(column => (
@@ -187,11 +186,20 @@ class LastGrid extends Component{
           </FilterSelect>
         </div>
     </div>
-   {this.currentGrid}
+    <div className={this.props.isDark ? null : this.props.isBlue ? "BlueTheme" : "WhiteTheme"} style={{height: "100%"}}>
+      {this.currentGrid}
+    </div>
    </>
 
   );
  }
 }
 
-export default LastGrid;
+const mapStateToProps = (state) => {
+ return {
+   isDark: state.theme === "dark" ? true : false,
+   isBlue: state.theme === "blue" ? true : false
+ }
+}
+
+export default connect(mapStateToProps)(LastGrid);

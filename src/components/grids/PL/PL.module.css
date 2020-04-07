@@ -1,4 +1,5 @@
 .Chart {
   background-color: #31313d;
+  height: calc(100% - 42px);
 }
 /*# sourceMappingURL=PL.module.css.map */

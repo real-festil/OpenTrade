@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {default as Select} from 'react-select';
 import './Select.css';
+import {connect} from "react-redux";
 
 const select = ( props ) => {
     let options = props.options;
@@ -13,10 +14,10 @@ const select = ( props ) => {
         control: (provided, {isFocused, isSelected, isHovered}) => ({
             width: props.width,
             height: "20px",
-            border: isFocused ? "2px solid #20a8d8" : props.invalid ? "2px solid red" : "2px solid #37373c" ,
+            border: isFocused ? "2px solid #20a8d8" : props.invalid ? "2px solid red" : props.isDark ? "1px solid #37373c" : props.isBlue ? "1px solid #3737c" : "1px solid #dedee0",
             borderRadius: "5px",
             transition: "0.2s ease",
-            backgroundColor: "#202028",
+            backgroundColor: props.isDark ? "#202028" : props.isBlue ? "#0b124a" : "#ffffff",
             color: "#22ADF6",
             fontSize: "12px",
             cursor: "pointer",
@@ -52,8 +53,25 @@ const select = ( props ) => {
             fontWeigt: 'regular '
         }),
         placeholder: () => ({
-            color: "#555555",
+            color: props.isBlue ? "white" : "#555555",
             marginBottom: 5
+        }),
+        multiValue: () => ({
+         border: '1px solid #163c68',
+         display: 'flex',
+         alignItems: 'center',
+         marginRight: 5,
+         backgroundColor: "rgba(0, 126, 255, 0.08)",
+         marginTop: -4.5
+        }),
+        multiValueLabel: () => ({
+         color: '#22ADF6',
+         fontSize: 10,
+         padding: 2
+        }),
+        multiValueRemove: (provided, {isFocused, isSelected, isHovered}) => ({
+         backgroundColor: isHovered ? "rgba(0, 126, 255, 0.08)" : null,
+         border: '1px solid #163c68'
         }),
         multiValue: () => ({
          border: '1px solid #163c68',
@@ -78,6 +96,7 @@ const select = ( props ) => {
         <Select options={options}
                 name={props.name}
                 styles={customStyles}
+                maxMenuHeight={250}
                 style={props.style}
                 isMulti={props.isMulti}
                 className='react-select-container'
@@ -89,4 +108,11 @@ const select = ( props ) => {
     )
 }
 
-export default select;
+const mapStateToProps = (state) => {
+ return {
+   isDark: state.theme === "dark" ? true : false,
+   isBlue: state.theme === "blue" ? true : false
+ }
+}
+
+export default connect(mapStateToProps)(select);

@@ -1,0 +1,45 @@
+.FilterWrapper {
+  position: relative;
+  left: 20%;
+  z-index: 1000;
+}
+
+.FilterSelect {
+  position: absolute;
+  width: 300px;
+  border-radius: 5px;
+  background: -webkit-gradient(linear, left top, right top, from(#4591ED), to(#22adf6));
+  background: linear-gradient(90deg, #4591ED, #22adf6);
+  left: -290px;
+  top: 20px;
+}
+
+.FilterHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  font-size: 14px;
+  background: -webkit-gradient(linear, left top, right top, from(#00c9ff), to(#22adf6));
+  background: linear-gradient(90deg, #00c9ff, #22adf6);
+  height: 30px;
+}
+
+.FilterCheckbox {
+  padding: 8px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.FilterCheckbox div {
+  margin-right: 12px;
+}
+/*# sourceMappingURL=filterSelect.module.css.map */

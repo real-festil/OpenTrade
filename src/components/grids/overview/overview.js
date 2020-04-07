@@ -2,7 +2,10 @@ import React from 'react';
 import DataGrid, {valueCellContentRenderer} from 'react-data-grid';
 import Wrapper from '../Wrapper.js';
 import classes from './overview.module.css';
-import '../grid.css';
+import {connect} from "react-redux";
+import {useEffect} from "react";
+import gridStyle from "../grid.style";
+import "../grid.css";
 
 const defaultColumnProperties = {
  resizable: true,
@@ -61,25 +64,34 @@ const cell = {
 }
 
 const onWidthChanged = () => {
- console.log('smthng')
  window.dispatchEvent(new Event('resize'));
 }
 
-const overview = ( props ) => {
- return (
+const Overview = ( props ) => {
 
-   <DataGrid
-     columns={columns}
-     onWidthChanged={onWidthChanged}
-     rowGetter={i => rows[i]}
-     rowsCount={15}
-     rowHeight={27}
-     minHeight={50}
-     defaultCellContentRenderer={valueCellContentRenderer}
-     ></DataGrid>
+  return (
+   <div className={props.isDark ? null : props.isBlue ? "BlueTheme" : "WhiteTheme"} style={{height: "100%"}}>
+    <DataGrid
+      style={gridStyle}
+      columns={columns}
+      onWidthChanged={onWidthChanged}
+      rowGetter={i => rows[i]}
+      rowsCount={15}
+      rowHeight={27}
+      minHeight={50}
+      defaultCellContentRenderer={valueCellContentRenderer}
+      ></DataGrid>
+   </div>
 
 );
 }
 
+const mapStateToProps = (state) => {
+ return {
+   isDark: state.theme === "dark" ? true : false,
+   isBlue: state.theme === "blue" ? true : false
+ }
+}
 
-export default overview;
+
+export default connect(mapStateToProps)(Overview);

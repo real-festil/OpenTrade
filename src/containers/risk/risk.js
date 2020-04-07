@@ -17,6 +17,7 @@ import FullScreen from 'react-full-screen';
 import SizeMe from '../dashboard/sizeMe';
 import Treeview from '../../components/ui/treeview/treeview.js';
 import crossImage from '../../images/cross.svg';
+import {connect} from "react-redux";
 
 const GridLayout = SizeMe(RGL);
 
@@ -89,7 +90,7 @@ class Risk extends Component {
       console.log(isChart);
       this.grids.push(
       <div className={classes.Placeholder} key={key}>
-        <div className='DragHandle'>
+        <div className={this.props.isDark ? 'DragHandle' : this.props.isBlue ? "BlueDragHandle" : 'WhiteDragHandle'}>
           <p>{name}</p>
           <img src={crossImage}
                alt=""
@@ -162,7 +163,7 @@ class Risk extends Component {
                     changeClicked={this.changePasswordHandler}
                     alertClicked={this.alertClickedHandler}
                     algoClicked={this.riskHandler}/>
-                <div className='grid'>
+                <div className='grid' style={{backgroundColor: this.props.isDark ? null : this.props.isBlue ? "rgb(44, 61, 99)" : "#e3e4e5"}}>
                     <Sidedrawer showSidedrawer={this.state.showSidedrawer} LogOut={this.onLogout}/>
                     <div className={classes.Tree}>
                       <Treeview clicked={this.onTreeClicked} caption='Template'>
@@ -204,7 +205,7 @@ class Risk extends Component {
                                 rowHeight={81}
                                 onResizeStop={this.onWidthChanged}
                                 useCSSTransforms={false}
-                                draggableHandle='.DragHandle'
+                                draggableHandle={this.props.isDark ? '.DragHandle' : this.props.isBlue ? ".BlueDragHandle" : '.WhiteDragHandle'}
                                 layout={this.state.layout}>
                                   {this.grids}
                         </GridLayout>
@@ -224,4 +225,11 @@ class Risk extends Component {
     }
 }
 
-export default Risk;
+const mapStateToProps = (state) => {
+ return {
+   isDark: state.theme === "dark" ? true : false,
+   isBlue: state.theme === "blue" ? true : false
+ }
+}
+
+export default connect(mapStateToProps)(Risk);

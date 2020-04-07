@@ -34,6 +34,14 @@
           align-items: center;
 }
 
+.ButtonWrapperOpen:hover {
+  background-color: #00C9FF;
+}
+
+.ButtonWrapperOpen:hover div {
+  background-color: #00C9FF;
+}
+
 .ButtonWrapperOpen div {
   background-color: #424352;
 }
@@ -103,12 +111,28 @@
 
 .Control {
   position: relative;
+  display: block;
+  width: 165px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   top: 45px;
   margin-left: -50px;
 }
 
+.Control img {
+  margin: 0;
+  margin-left: -10px;
+  padding-right: 5px;
+}
+
 .Control p {
   margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;

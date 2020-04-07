@@ -4,6 +4,8 @@ import Layout from './components/layout/layout';
 import Dashboard from './containers/dashboard/dashboard';
 import Login from './containers/login/login';
 import Risk from './containers/risk/risk';
+import * as zoom from 'chartjs-plugin-zoom'
+
 
 class App extends Component {
   state = {
@@ -45,7 +47,7 @@ class App extends Component {
             <Route path='/' exact>
               <Redirect to='/dashboard'/>
             </Route>
-            <button onClick={this.onLogout}>Log Out</button>
+            {/* <button onClick={this.onLogout}>Log Out</button> */}
           </>
         )
       : (

@@ -5,10 +5,12 @@ import settingsImage from '../../../images/settings.svg';
 import editorImage from '../../../images/editor.svg';
 import Button from '../button/button';
 import Select from '../iconSelect/iconSelect';
+import { connect } from "react-redux";
 
 class Header extends Component{
     state = {
-        value: ''
+        value: '',
+        isDark: localStorage.getItem("isDark")
     }
 
     options = [
@@ -60,7 +62,11 @@ class Header extends Component{
 
     render () {
         return (
-            <div className={classes.Header}>
+            <div className={classes.Header}
+                 style={{
+                   backgroundColor: this.props.isDark ? null : this.props.isBlue ? "#060A2E" : "white",
+                   color: this.props.isDark ? null : this.props.isBlue ? null : "gray"
+                   }}>
                 <div className={classes.Left}>
                     <div className={classes.Sandwich} onClick={this.props.sidedrawerClicked}>
                         <div></div>
@@ -100,4 +106,11 @@ class Header extends Component{
     }
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+ return {
+   isDark: state.theme === "dark" ? true : false,
+   isBlue: state.theme === "blue" ? true : false
+ }
+}
+
+export default connect(mapStateToProps)(Header);

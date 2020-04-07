@@ -15,6 +15,29 @@
   background-color: #292933;
 }
 
+.WhiteDraggable {
+  z-index: 0;
+  position: absolute;
+  width: 315px;
+  height: 335px;
+  background-color: white;
+  color: black;
+}
+
+.WhiteDraggable input {
+  background-color: white !important;
+  color: black !important;
+  border-color: #dedee0 !important;
+}
+
+.WhiteDraggable .Header {
+  border-bottom: 1px solid #dedede !important;
+}
+
+.WhiteDraggable .ButtonPart {
+  border-top: 1px solid #dedee0 !important;
+}
+
 .Header {
   padding: 5px;
   padding-left: 20px;

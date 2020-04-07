@@ -1,0 +1,34 @@
+.FilterWrapper {
+ position: relative;
+ left: 20%;
+ z-index: 1000;
+}
+
+.FilterSelect {
+ position: absolute;
+ width: 300px;
+ border-radius: 5px;
+ background: linear-gradient(90deg, #4591ED, #22adf6);
+ left: -290px;
+ top: 20px;
+}
+
+.FilterHeader {
+ display: flex;
+ justify-content: center;
+ align-self: center;
+ font-size: 14px;
+ background: linear-gradient(90deg, #00c9ff, #22adf6);
+ height: 30px;
+}
+
+.FilterCheckbox {
+ padding: 8px;
+ width: 100%;
+ display: flex;
+ flex-wrap: wrap;
+}
+
+.FilterCheckbox div {
+ margin-right: 12px;
+}

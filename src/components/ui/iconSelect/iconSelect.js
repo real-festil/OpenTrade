@@ -36,10 +36,12 @@ const select = ( props ) => {
         menuList: () => ({
             padding: 0.5,
             borderRadius: 5,
+
         }),
         menu: () => ({
             width: props.menuWidth,
             zIndex: '200',
+
             marginLeft: -200,
             borderRadius: "5px",
             position: 'absolute',
@@ -80,6 +82,7 @@ const select = ( props ) => {
         <Select options={options}
                 name={props.name}
                 styles={customStyles}
+                maxMenuHeight={200}
                 style={props.style}
                 className='react-select-container'
                 classNamePrefix="react-select"

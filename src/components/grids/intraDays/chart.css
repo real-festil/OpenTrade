@@ -1,0 +1,16 @@
+.react-stockchart {
+ background-color: #31313d;
+ color: white !important;
+}
+
+.react-stockcharts-axis text {
+ color: white !important;
+}
+
+.WhiteTheme .react-stockchart {
+ background-color: white;
+}
+
+.BlueTheme .react-stockchart {
+ background-color: #010839;
+}

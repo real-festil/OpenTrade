@@ -1,5 +1,7 @@
 .Placeholder {
   background-color: #292933;
   color: white;
+  -webkit-box-shadow: black 0px 0px 4px;
+          box-shadow: black 0px 0px 4px;
 }
 /*# sourceMappingURL=dashboard.module.css.map */
