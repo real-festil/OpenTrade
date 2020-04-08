@@ -28,6 +28,7 @@
     "react-chartjs-2": "^2.9.0",
     "react-data-grid": "^5.0.1",
     "react-data-grid-addons": "^7.0.0-alpha.24",
+    "react-dev-utils": "^10.0.0",
     "react-dom": "^16.12.0",
     "react-draggable": "^4.2.0",
     "react-final-form": "^6.3.3",
