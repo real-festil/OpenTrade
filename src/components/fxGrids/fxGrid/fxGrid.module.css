@@ -1,0 +1,10 @@
+.Grid {
+  width: 80%;
+  height: calc(100vh - 55px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+/*# sourceMappingURL=fxGrid.module.css.map */

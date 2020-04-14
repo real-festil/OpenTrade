@@ -1,0 +1,85 @@
+.Card {
+  width: 400px;
+  height: 200px;
+  background-color: rgb(46, 53, 67);
+}
+
+.Card:hover {
+  background-color: rgb(61, 68, 85);
+}
+
+.Card:hover .CardControl button {
+  background-color: #262c3a;
+}
+
+.CardHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.CardContent {
+  display: flex;
+}
+
+.CardGraph {
+  flex: 60%;
+  justify-content: center;
+  align-items: center;
+}
+
+.CardControl {
+  display: flex;
+  flex: 40%;
+  flex-direction: column;
+}
+
+.CardControl button {
+  display: flex;
+  background: none;
+  border: none;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  margin: 2px;
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.CurrentPrice {
+  font-size: 36px;
+  margin: 0;
+  margin-left: 2px;
+}
+
+.CardInput {
+  position: relative;
+  top: -10px;
+  display: flex;
+  align-items: center;
+}
+
+.CardInput p {
+  font-size: 12px;
+  margin: 0 10px;
+}
+
+.CardInput input {
+  background: none;
+  border: none;
+  border-bottom: 1px solid white;
+  height: 20px;
+  color: white;
+  text-align: center;
+}
+
+.Sell:hover {
+  background-color: rgb(249, 76, 76) !important;
+  cursor: pointer;
+}
+
+.Buy:hover {
+  background-color: rgb(95, 148, 245) !important;
+  cursor: pointer;
+}

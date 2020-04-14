@@ -1,0 +1,114 @@
+.Card {
+  width: 400px;
+  height: 200px;
+  background-color: #2e3543;
+}
+
+.Card:hover {
+  background-color: #3d4455;
+}
+
+.Card:hover .CardControl button {
+  background-color: #262c3a;
+}
+
+.CardHeader {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.CardContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.CardGraph {
+  -webkit-box-flex: 60%;
+      -ms-flex: 60%;
+          flex: 60%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.CardControl {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 40%;
+      -ms-flex: 40%;
+          flex: 40%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.CardControl button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: none;
+  border: none;
+  color: white;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 2px;
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.CurrentPrice {
+  font-size: 36px;
+  margin: 0;
+  margin-left: 2px;
+}
+
+.CardInput {
+  position: relative;
+  top: -10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.CardInput p {
+  font-size: 12px;
+  margin: 0 10px;
+}
+
+.CardInput input {
+  background: none;
+  border: none;
+  border-bottom: 1px solid white;
+  height: 20px;
+  color: white;
+  text-align: center;
+}
+
+.Sell:hover {
+  background-color: #f94c4c !important;
+  cursor: pointer;
+}
+
+.Buy:hover {
+  background-color: #5f94f5 !important;
+  cursor: pointer;
+}
+/*# sourceMappingURL=fxCard.module.css.map */
