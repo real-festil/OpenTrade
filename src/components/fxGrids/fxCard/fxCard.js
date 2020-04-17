@@ -1,7 +1,10 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import classes from "./fxCard.module.css";
 import { Chart } from "chart.js";
 import { Form, Field } from "react-final-form";
+import { connect } from "react-redux";
+import { addTrade } from "../../../reducers/index";
+import { v4 as uuidv4 } from "uuid";
 
 const options = {
   legend: false,
@@ -76,63 +79,96 @@ const FXCard = (props) => {
     createLineChart(updatedData);
   }, 3000);
 
-  const onSubmit= (values) => {
+  const onSubmit = (values) => {
     alert("Operation was successful: " + values);
-  }
+    props.dispatch(
+      addTrade({
+        id: uuidv4(),
+        status: "done",
+        date: "today",
+        direction: "Sell",
+        ccyccy: props.label,
+        dealtCcy: props.income,
+        notional: inputValue,
+        rate: 0.5,
+        valueDate: "today",
+        trader: "EDO",
+      })
+    );
+  };
 
   return (
     <div className={classes.Card}>
       <div className={classes.CardHeader}>
-        <p>{props.label}</p>
+        <p>
+          {props.income}/{props.outcome}
+        </p>
         <p>SPT(14APR)</p>
       </div>
       <Form
-          onSubmit={onSubmit}
-          render={({handleSubmit, values}) => (
-            <form onSubmit={handleSubmit}>
-              <div className={classes.CardContent}>
-                <div className={classes.CardGraph}>
-                  <canvas id={props.label} height="120" width="250"></canvas>
-                </div>
-                <p style={{display: "flex", alignItems: "center", textAlign: "center"}}>2.3</p>
-                <div className={classes.CardControl}>
-                  <button className={classes.Sell} type="submit" onClick={() => onSubmit(inputValue)}>
-                    <div className={classes.CardControlInfo}>
-                      <p>SELL</p>
-                      <p>1.09</p>
-                    </div>
-                    <p className={classes.CurrentPrice}>{props.min}</p>
-                  </button>
-                  <button className={classes.Buy} onClick={() => onSubmit(inputValue)}>
-                    <div className={classes.CardControlInfo}>
-                      <p>BUY</p>
-                      <p>1.09</p>
-                    </div>
-                    <p className={classes.CurrentPrice}>{props.max}</p>
-                  </button>
-                </div>
+        onSubmit={onSubmit}
+        render={({ handleSubmit, values }) => (
+          <form onSubmit={handleSubmit}>
+            <div className={classes.CardContent}>
+              <div className={classes.CardGraph}>
+                <canvas id={props.label} height="120" width="250"></canvas>
               </div>
-              <div className={classes.CardInput}>
-                <p>EUR</p>
-                <Field name="EUR">
-                  {({input}) => (
-                    <input {...input}
-                      defaultValue={100000}
-                      type="number"
-                      value={inputValue}
-                      onChange={(e) => {
-                        if(e.target.value.length > 10) return null
-                        else changeInputValue(e.target.value)
-                      }}/>
-                  )}
-                </Field>
+              <p
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  textAlign: "center",
+                }}
+              >
+                2.3
+              </p>
+              <div className={classes.CardControl}>
+                <button
+                  className={classes.Sell}
+                  type="button"
+                  onClick={() => onSubmit(inputValue)}
+                >
+                  <div className={classes.CardControlInfo}>
+                    <p>SELL</p>
+                    <p>1.09</p>
+                  </div>
+                  <p className={classes.CurrentPrice}>{props.min}</p>
+                </button>
+                <button
+                  className={classes.Buy}
+                  type="button"
+                  onClick={() => onSubmit(inputValue)}
+                >
+                  <div className={classes.CardControlInfo}>
+                    <p>BUY</p>
+                    <p>1.09</p>
+                  </div>
+                  <p className={classes.CurrentPrice}>{props.max}</p>
+                </button>
               </div>
-            </form>
-          )}
-        />
-
+            </div>
+            <div className={classes.CardInput}>
+              <p>{props.income}</p>
+              <Field name="EUR">
+                {({ input }) => (
+                  <input
+                    {...input}
+                    defaultValue={100000}
+                    type="number"
+                    value={inputValue}
+                    onChange={(e) => {
+                      if (e.target.value.length > 10) return null;
+                      else changeInputValue(e.target.value);
+                    }}
+                  />
+                )}
+              </Field>
+            </div>
+          </form>
+        )}
+      />
     </div>
   );
 };
 
-export default FXCard;
+export default connect()(FXCard);

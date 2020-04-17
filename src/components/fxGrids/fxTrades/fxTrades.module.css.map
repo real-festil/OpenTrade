@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,YAAY,CAAC;EACX,MAAM,EAAE,IAAI;EACZ,gBAAgB,EAAE,OAAO;EACzB,OAAO,EAAE,KAAK;CACf;;AAED,AAAA,YAAY,CAAC,EAAE,CAAC;EACd,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,MAAM;EACf,WAAW,EAAE,IAAI;CAClB",
+    "sources": [
+        "fxTrades.module.scss"
+    ],
+    "names": [],
+    "file": "fxTrades.module.css"
+}
