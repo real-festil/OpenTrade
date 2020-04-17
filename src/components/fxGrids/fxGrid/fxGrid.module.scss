@@ -1,6 +1,8 @@
 .Grid {
-  width: 80%;
+  width: 100%;
   height: calc(100vh - 55px);
   display: flex;
   flex-wrap: wrap;
+  padding: 10px;
+  justify-content: space-evenly;
 }

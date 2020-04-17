@@ -1,10 +1,14 @@
 .Grid {
-  width: 80%;
+  width: 100%;
   height: calc(100vh - 55px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  padding: 10px;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 /*# sourceMappingURL=fxGrid.module.css.map */
