@@ -1,6 +1,6 @@
 .GridWrapper {
   height: 100%;
-  background-color: #424453;
+  background-color: #30303d;
   z-index: 10000;
 }
 
@@ -8,4 +8,21 @@
   margin: 0;
   padding: 10px 0;
   margin-left: 20px;
+}
+
+.GridHeader {
+  display: flex;
+  align-items: center;
+}
+
+.GridHeader button {
+  height: 30px;
+  width: 50px;
+  margin-left: 30px;
+  background-color: #22adf6;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: 0.3s ease;
 }

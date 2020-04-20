@@ -80,7 +80,6 @@ const FXCard = (props) => {
   }, 3000);
 
   const onSubmit = (values) => {
-    alert("Operation was successful: " + values);
     props.dispatch(
       addTrade({
         id: uuidv4(),
@@ -105,68 +104,56 @@ const FXCard = (props) => {
         </p>
         <p>SPT(14APR)</p>
       </div>
-      <Form
-        onSubmit={onSubmit}
-        render={({ handleSubmit, values }) => (
-          <form onSubmit={handleSubmit}>
-            <div className={classes.CardContent}>
-              <div className={classes.CardGraph}>
-                <canvas id={props.label} height="120" width="250"></canvas>
-              </div>
-              <p
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  textAlign: "center",
-                }}
-              >
-                2.3
-              </p>
-              <div className={classes.CardControl}>
-                <button
-                  className={classes.Sell}
-                  type="button"
-                  onClick={() => onSubmit(inputValue)}
-                >
-                  <div className={classes.CardControlInfo}>
-                    <p>SELL</p>
-                    <p>1.09</p>
-                  </div>
-                  <p className={classes.CurrentPrice}>{props.min}</p>
-                </button>
-                <button
-                  className={classes.Buy}
-                  type="button"
-                  onClick={() => onSubmit(inputValue)}
-                >
-                  <div className={classes.CardControlInfo}>
-                    <p>BUY</p>
-                    <p>1.09</p>
-                  </div>
-                  <p className={classes.CurrentPrice}>{props.max}</p>
-                </button>
-              </div>
+      <div className={classes.CardContent}>
+        <div className={classes.CardGraph}>
+          <canvas id={props.label} height="120" width="250"></canvas>
+        </div>
+        <p
+          style={{
+            display: "flex",
+            alignItems: "center",
+            textAlign: "center",
+          }}
+        >
+          2.3
+        </p>
+        <div className={classes.CardControl}>
+          <button
+            className={classes.Sell}
+            type="button"
+            onClick={() => onSubmit(inputValue)}
+          >
+            <div className={classes.CardControlInfo}>
+              <p>SELL</p>
+              <p>1.09</p>
             </div>
-            <div className={classes.CardInput}>
-              <p>{props.income}</p>
-              <Field name="EUR">
-                {({ input }) => (
-                  <input
-                    {...input}
-                    defaultValue={100000}
-                    type="number"
-                    value={inputValue}
-                    onChange={(e) => {
-                      if (e.target.value.length > 10) return null;
-                      else changeInputValue(e.target.value);
-                    }}
-                  />
-                )}
-              </Field>
+            <p className={classes.CurrentPrice}>{props.min}</p>
+          </button>
+          <button
+            className={classes.Buy}
+            type="button"
+            onClick={() => onSubmit(inputValue)}
+          >
+            <div className={classes.CardControlInfo}>
+              <p>BUY</p>
+              <p>1.09</p>
             </div>
-          </form>
-        )}
-      />
+            <p className={classes.CurrentPrice}>{props.max}</p>
+          </button>
+        </div>
+      </div>
+      <div className={classes.CardInput}>
+        <p>{props.income}</p>
+        <input
+          defaultValue={100000}
+          type="number"
+          value={inputValue}
+          onChange={(e) => {
+            if (e.target.value.length > 10) return null;
+            else changeInputValue(e.target.value);
+          }}
+        />
+      </div>
     </div>
   );
 };

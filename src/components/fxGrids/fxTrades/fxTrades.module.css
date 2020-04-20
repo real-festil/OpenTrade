@@ -1,6 +1,6 @@
 .GridWrapper {
   height: 100%;
-  background-color: #424453;
+  background-color: #30303d;
   z-index: 10000;
 }
 
@@ -8,5 +8,27 @@
   margin: 0;
   padding: 10px 0;
   margin-left: 20px;
+}
+
+.GridHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.GridHeader button {
+  height: 30px;
+  width: 50px;
+  margin-left: 30px;
+  background-color: #22adf6;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
 }
 /*# sourceMappingURL=fxTrades.module.css.map */

@@ -4,6 +4,7 @@ import Sidedrawer from "../../components/ui/sidedrawer/sidedrawer";
 import FXGrid from "../../components/fxGrids/fxGrid/fxGrid.js";
 import FXTrades from "../../components/fxGrids/fxTrades/fxTrades";
 import SplitPane from "react-split-pane";
+import "../../components/editors/algoEditor/splitPane.css";
 
 class FX extends React.Component {
   state = {
@@ -25,9 +26,9 @@ class FX extends React.Component {
             defaultSize={100}
           />
           <div>
-            <SplitPane split="horizontal" primary="first">
+            <SplitPane split="horizontal" size="20%">
               <FXGrid />
-              <FXTrades initialSize="20%" />
+              <FXTrades />
             </SplitPane>
           </div>
         </div>

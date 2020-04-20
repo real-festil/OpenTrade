@@ -28,6 +28,7 @@
 }
 
 .CardGraph {
+  z-index: 0;
   -webkit-box-flex: 60%;
       -ms-flex: 60%;
           flex: 60%;
