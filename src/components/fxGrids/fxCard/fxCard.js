@@ -104,56 +104,118 @@ const FXCard = (props) => {
         </p>
         <p>SPT(14APR)</p>
       </div>
-      <div className={classes.CardContent}>
-        <div className={classes.CardGraph}>
-          <canvas id={props.label} height="120" width="250"></canvas>
-        </div>
-        <p
-          style={{
-            display: "flex",
-            alignItems: "center",
-            textAlign: "center",
-          }}
-        >
-          2.3
-        </p>
-        <div className={classes.CardControl}>
-          <button
-            className={classes.Sell}
-            type="button"
-            onClick={() => onSubmit(inputValue)}
-          >
-            <div className={classes.CardControlInfo}>
-              <p>SELL</p>
-              <p>1.09</p>
+      {!props.simpleView ? (
+        <>
+          <div className={classes.CardContent}>
+            <div className={classes.CardGraph}>
+              <canvas id={props.label} height="120" width="250"></canvas>
             </div>
-            <p className={classes.CurrentPrice}>{props.min}</p>
-          </button>
-          <button
-            className={classes.Buy}
-            type="button"
-            onClick={() => onSubmit(inputValue)}
-          >
-            <div className={classes.CardControlInfo}>
-              <p>BUY</p>
-              <p>1.09</p>
+            <p
+              style={{
+                display: "flex",
+                alignItems: "center",
+                textAlign: "center",
+              }}
+            >
+              2.3
+            </p>
+            <div className={classes.CardControl}>
+              <button
+                className={classes.Sell}
+                type="button"
+                onClick={() => onSubmit(inputValue)}
+              >
+                <div className={classes.CardControlInfo}>
+                  <p>SELL</p>
+                  <p>1.09</p>
+                </div>
+                <p className={classes.CurrentPrice}>{props.min}</p>
+              </button>
+              <button
+                className={classes.Buy}
+                type="button"
+                onClick={() => onSubmit(inputValue)}
+              >
+                <div className={classes.CardControlInfo}>
+                  <p>BUY</p>
+                  <p>1.09</p>
+                </div>
+                <p className={classes.CurrentPrice}>{props.max}</p>
+              </button>
             </div>
-            <p className={classes.CurrentPrice}>{props.max}</p>
-          </button>
-        </div>
-      </div>
-      <div className={classes.CardInput}>
-        <p>{props.income}</p>
-        <input
-          defaultValue={100000}
-          type="number"
-          value={inputValue}
-          onChange={(e) => {
-            if (e.target.value.length > 10) return null;
-            else changeInputValue(e.target.value);
-          }}
-        />
-      </div>
+          </div>
+          <div className={classes.CardInput}>
+            <p>{props.income}</p>
+            <input
+              defaultValue={100000}
+              type="number"
+              value={inputValue}
+              onChange={(e) => {
+                if (e.target.value.length > 10) return null;
+                else changeInputValue(e.target.value);
+              }}
+            />
+          </div>
+        </>
+      ) : (
+        <>
+          <div className={classes.CardContent}>
+            <div
+              className={classes.CardControl}
+              style={{ flexDirection: "row", justifyContent: "space-between" }}
+            >
+              <button
+                className={classes.Sell}
+                type="button"
+                onClick={() => onSubmit(inputValue)}
+                style={{ height: "70px", width: "150px" }}
+              >
+                <div className={classes.CardControlInfo}>
+                  <p>SELL</p>
+                  <p>1.09</p>
+                </div>
+                <p className={classes.CurrentPrice}>{props.min}</p>
+              </button>
+              <p
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  textAlign: "center",
+                }}
+              >
+                2.3
+              </p>
+              <button
+                className={classes.Buy}
+                type="button"
+                onClick={() => onSubmit(inputValue)}
+                style={{ height: "70px", width: "150px" }}
+              >
+                <div className={classes.CardControlInfo}>
+                  <p>BUY</p>
+                  <p>1.09</p>
+                </div>
+                <p className={classes.CurrentPrice}>{props.max}</p>
+              </button>
+            </div>
+          </div>
+          <div
+            className={classes.CardInput}
+            style={{ top: "10px", justifyContent: "center" }}
+          >
+            <p>{props.income}</p>
+            <input
+              defaultValue={100000}
+              type="number"
+              value={inputValue}
+              onChange={(e) => {
+                if (e.target.value.length > 10) return null;
+                else changeInputValue(e.target.value);
+              }}
+            />
+          </div>
+        </>
+      )}
     </div>
   );
 };

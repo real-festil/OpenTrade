@@ -1,0 +1,158 @@
+.DataGrid .react-grid-Grid {
+  border: none !important;
+  font-size: 12px !important;
+  font-weight: normal !important;
+  color: white !important;
+  width: 100% !important;
+  background-color: #31313d !important;
+  height: 100% !important;
+  border-radius: 10px;
+}
+
+.react-grid-Container {
+  color: black !important;
+  height: calc(100% - 42px) !important;
+}
+
+.DataGrid .react-grid-Main {
+  background-color: #31313d !important;
+  outline: none !important;
+  padding: 20px;
+  padding-top: 0;
+  height: 100% !important;
+}
+
+.react-grid-Canvas {
+  background-color: #31313d !important;
+  height: 100% !important;
+}
+
+.react-grid-HeaderCell {
+  padding: 0 !important;
+  text-align: left !important;
+  background-color: #434453 !important;
+  border: none !important;
+}
+
+.react-grid-HeaderCell-sortable {
+  padding: 5px !important;
+  text-align: left !important;
+  background-color: #434453 !important;
+  border: none !important;
+}
+
+.widget-HeaderCell__value {
+  margin: 0 7px !important;
+  position: relative !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
+.widget-HeaderCell__value-sortable {
+  margin: 0 7px !important;
+  position: relative !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
+.DataGrid .react-grid-Row {
+  background: #292933 !important;
+  border-left: 5px solid green;
+}
+
+.react-grid-Row--even {
+  background: #31313d !important;
+}
+
+.react-grid-Row:hover {
+  background: #0a0a0e !important;
+}
+
+.react-grid-HeaderRow {
+  width: calc(100% + 12px) !important;
+  background: #434453 !important;
+}
+
+.react-grid-Cell {
+  border: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+  border-right: 1px solid #383846 !important;
+  border-bottom: 1px solid #383846 !important;
+}
+
+.react-grid-Cell__value {
+  margin: 0 7px !important;
+}
+
+.BlueTheme .react-grid-Row {
+  background: #010839 !important;
+}
+
+.BlueTheme .react-grid-Row--even {
+  background: #050b33 !important;
+}
+
+.BlueTheme .react-grid-HeaderCell {
+  padding: 0 !important;
+  text-align: left !important;
+  background-color: #0b124a !important;
+  border: none !important;
+}
+
+.BlueTheme .react-grid-HeaderRow {
+  width: calc(100% + 12px) !important;
+  background: #0b124a !important;
+}
+
+.BlueTheme .react-grid-Canvas {
+  background-color: #010839 !important;
+  height: 100% !important;
+}
+
+.WhiteTheme .react-grid-Grid {
+  color: black !important;
+}
+
+.WhiteTheme .react-grid-Row {
+  background: #ffffff !important;
+}
+
+.WhiteTheme .react-grid-Row--even {
+  background: #ebeaea !important;
+}
+
+.WhiteTheme .react-grid-Main {
+  background-color: #fafafa !important;
+  outline: none !important;
+  height: 100% !important;
+}
+
+.WhiteTheme .react-grid-Canvas {
+  background-color: #fafafa !important;
+  height: 100% !important;
+}
+
+.WhiteTheme .react-grid-HeaderCell {
+  padding: 0 !important;
+  text-align: left !important;
+  background-color: #f9f9f9 !important;
+  border: none !important;
+}
+
+.WhiteTheme .react-grid-Row:hover {
+  background: #fff3cd !important;
+}
+
+.WhiteTheme .react-grid-HeaderRow {
+  width: calc(100% + 12px) !important;
+  background: #f9f9f9 !important;
+}
+
+.WhiteTheme .react-grid-Cell {
+  border: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+  border-right: 1px solid #dedee0 !important;
+  border-bottom: 1px solid #dedee0 !important;
+}

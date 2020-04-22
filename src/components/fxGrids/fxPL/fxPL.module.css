@@ -1,0 +1,42 @@
+.PL {
+  background-color: #2e3543;
+  margin: 10px;
+  border-radius: 5px;
+  overflow: scroll;
+  height: 77%;
+}
+
+.CardGraph {
+  height: 300px;
+  max-height: 400px;
+}
+
+.CardGraph h3 {
+  margin-left: 20px;
+}
+
+.CardGraphInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 10px;
+}
+
+.OrderDepth {
+  height: 400px;
+  background-color: #424453;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.LastGrid {
+  height: 400px;
+  background-color: #424453;
+  margin: 5px;
+  margin-top: 25px;
+  border-radius: 5px;
+}
+/*# sourceMappingURL=fxPL.module.css.map */

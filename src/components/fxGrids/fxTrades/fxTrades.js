@@ -3,7 +3,7 @@ import DataGrid, { valueCellContentRenderer } from "react-data-grid";
 import { CSVLink, CSVDownload } from "react-csv";
 import { connect } from "react-redux";
 import classes from "./fxTrades.module.css";
-import "../../grids/grid.css";
+import "./grid.css";
 
 const defaultColumnProperties = {
   resizable: true,
@@ -115,18 +115,20 @@ const FXTrades = (props) => {
           </CSVLink>
         </button>
       </div>
-      <DataGrid
-        columns={columns}
-        onWidthChanged={onWidthChanged}
-        rowGetter={(i) => updatedRows[i]}
-        rowsCount={updatedRows.length}
-        rowHeight={27}
-        minHeight={50}
-        onGridSort={(sortColumn, sortDirection) =>
-          setRows(sortRows(rows, sortColumn, sortDirection))
-        }
-        defaultCellContentRenderer={valueCellContentRenderer}
-      ></DataGrid>
+      <div className="DataGrid" style={{ height: "100%" }}>
+        <DataGrid
+          columns={columns}
+          onWidthChanged={onWidthChanged}
+          rowGetter={(i) => updatedRows[i]}
+          rowsCount={updatedRows.length}
+          rowHeight={27}
+          minHeight={50}
+          onGridSort={(sortColumn, sortDirection) =>
+            setRows(sortRows(rows, sortColumn, sortDirection))
+          }
+          defaultCellContentRenderer={valueCellContentRenderer}
+        ></DataGrid>
+      </div>
     </div>
   );
 };

@@ -4,6 +4,7 @@ import classes from "./fxGrid.module.css";
 
 const FXGrid = () => {
   const [filter, toggleFilter] = useState("ALL");
+  const [simpleView, toggleView] = useState(false);
 
   const cards = [
     { label: "EUR/USD", income: "EUR", outcome: "USD", min: 59, max: 64 },
@@ -24,15 +25,23 @@ const FXGrid = () => {
   return (
     <div>
       <div className={classes.Filters}>
-        <b>Live Rates</b>
-        <ul>
-          <li onClick={() => onToggleFilter("ALL")}>All</li>
-          <li onClick={() => onToggleFilter("EUR")}>EUR</li>
-          <li onClick={() => onToggleFilter("USD")}>USD</li>
-          <li onClick={() => onToggleFilter("GPB")}>GPB</li>
-          <li onClick={() => onToggleFilter("AUD")}>AUD</li>
-          <li onClick={() => onToggleFilter("NZD")}>NZD</li>
-        </ul>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <b>Live Rates</b>
+          <ul>
+            <li onClick={() => onToggleFilter("ALL")}>All</li>
+            <li onClick={() => onToggleFilter("EUR")}>EUR</li>
+            <li onClick={() => onToggleFilter("USD")}>USD</li>
+            <li onClick={() => onToggleFilter("GPB")}>GPB</li>
+            <li onClick={() => onToggleFilter("AUD")}>AUD</li>
+            <li onClick={() => onToggleFilter("NZD")}>NZD</li>
+          </ul>
+        </div>
+        <b
+          onClick={() => toggleView(!simpleView)}
+          style={{ cursor: "pointer" }}
+        >
+          Toggle View
+        </b>
       </div>
       <div className={classes.Grid}>
         {cards.map((card) => {
@@ -46,6 +55,7 @@ const FXGrid = () => {
                   outcome={card.outcome}
                   min={card.min}
                   max={card.max}
+                  simpleView={simpleView}
                 />
               );
             }
@@ -58,6 +68,7 @@ const FXGrid = () => {
                 outcome={card.outcome}
                 min={card.min}
                 max={card.max}
+                simpleView={simpleView}
               />
             );
         })}

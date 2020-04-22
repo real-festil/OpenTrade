@@ -7,12 +7,13 @@
 .GridWrapper h3 {
   margin: 0;
   padding: 10px 0;
-  margin-left: 20px;
 }
 
 .GridHeader {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
 }
 
 .GridHeader button {
@@ -25,4 +26,8 @@
   font-weight: bold;
   border-radius: 5px;
   transition: 0.3s ease;
+}
+
+.DataGrid {
+  height: 100%;
 }

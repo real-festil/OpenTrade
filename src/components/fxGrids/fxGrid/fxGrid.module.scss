@@ -1,5 +1,4 @@
 .Grid {
-  width: 70%;
   height: calc(100vh - 55px);
   display: flex;
   flex-wrap: wrap;
@@ -11,6 +10,7 @@
   display: flex;
   align-items: center;
   padding: 10px;
+  justify-content: space-between;
 }
 
 .Filters ul {
