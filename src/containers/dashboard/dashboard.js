@@ -27,6 +27,8 @@ import fullscreenGrayImage from "../../images/fullscreenGray.svg";
 import SizeMe from "./sizeMe";
 import IntraDay from "../../components/grids/intraDays/index.js";
 import { connect } from "react-redux";
+import ApexChart from "../../components/apexChart/apexChart";
+import ReavizioChart from "../../components/reavizioChart/reavizioChart";
 
 const GridLayout = SizeMe(RGL);
 
@@ -158,6 +160,28 @@ class Dashboard extends Component {
       i: "f",
       x: 7,
       y: 2,
+      w: 5,
+      h: 4,
+      minW: 1,
+      maxW: Infinity,
+      minH: 0.5,
+      maxH: Infinity,
+    },
+    {
+      i: "g",
+      x: 0,
+      y: 4,
+      w: 5,
+      h: 4,
+      minW: 1,
+      maxW: Infinity,
+      minH: 0.5,
+      maxH: Infinity,
+    },
+    {
+      i: "h",
+      x: 6,
+      y: 4,
       w: 5,
       h: 4,
       minW: 1,
@@ -357,6 +381,12 @@ class Dashboard extends Component {
 
               <div className={classes.Placeholder} key="f">
                 <LastGrid />
+              </div>
+              <div className={classes.Placeholder} key="g">
+                <ApexChart />
+              </div>
+              <div className={classes.Placeholder} key="h">
+                <ReavizioChart />
               </div>
             </GridLayout>
           </div>
