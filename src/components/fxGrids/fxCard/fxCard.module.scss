@@ -2,6 +2,7 @@
   width: 400px;
   height: 200px;
   background-color: rgb(46, 53, 67);
+  margin: 5px;
 }
 
 .Card:hover {
@@ -20,6 +21,12 @@
 
 .CardContent {
   display: flex;
+}
+
+.CardDate {
+  color: gray;
+  font-size: 10px;
+  align-self: center;
 }
 
 .CardGraph {
@@ -57,24 +64,28 @@
 
 .CardInput {
   position: relative;
-  top: -32px;
+  top: -10px;
   display: flex;
   align-items: center;
 }
 
 .CardInput p {
-  font-size: 12px;
+  font-size: 10px;
+  color: gray;
   margin: 0 10px;
 }
 
 .CardInput input {
   background: none;
   border: none;
-  border-bottom: 1px solid white;
   height: 20px;
   color: white;
   text-align: center;
   font-size: 15px;
+}
+
+.Card:hover .CardInput input {
+  border-bottom: 1px solid white;
 }
 
 .Sell:hover {

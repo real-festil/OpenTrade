@@ -102,7 +102,7 @@ const FXCard = (props) => {
         <p>
           {props.income}/{props.outcome}
         </p>
-        <p>SPT(14APR)</p>
+        <p className={classes.CardDate}>SPT(14APR)</p>
       </div>
       {!props.simpleView ? (
         <>

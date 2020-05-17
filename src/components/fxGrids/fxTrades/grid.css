@@ -60,6 +60,10 @@
   border-left: 5px solid green;
 }
 
+.DataGrid .react-grid-Cell {
+  border-right: none !important;
+}
+
 .react-grid-Row--even {
   background: #31313d !important;
 }
@@ -83,6 +87,27 @@
 
 .react-grid-Cell__value {
   margin: 0 7px !important;
+}
+
+.DataGrid .react-grid-HeaderCell-sortable {
+  background: #2e3543 !important;
+}
+
+.DataGrid .react-grid-Main {
+  background: #272d3a !important;
+}
+
+.DataGrid .react-grid-Canvas {
+  background: #272d3a !important;
+  font-weight: bold !important;
+}
+
+.DataGrid .react-grid-Row {
+  background: #272d3a !important;
+}
+
+.DataGrid .react-grid-Row--even {
+  background: #2e3543 !important;
 }
 
 .BlueTheme .react-grid-Row {

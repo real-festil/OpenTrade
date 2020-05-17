@@ -1,5 +1,4 @@
 .Grid {
-  height: calc(100vh - 55px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9,6 +8,7 @@
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  background-color: #272d3a;
 }
 
 .Filters {
@@ -22,6 +22,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  background-color: #272d3a;
 }
 
 .Filters ul {

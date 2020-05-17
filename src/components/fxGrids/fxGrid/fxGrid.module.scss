@@ -1,9 +1,9 @@
 .Grid {
-  height: calc(100vh - 55px);
   display: flex;
   flex-wrap: wrap;
   padding: 10px;
   justify-content: space-evenly;
+  background-color: #272d3a;
 }
 
 .Filters {
@@ -11,6 +11,7 @@
   align-items: center;
   padding: 10px;
   justify-content: space-between;
+  background-color: #272d3a;
 }
 
 .Filters ul {

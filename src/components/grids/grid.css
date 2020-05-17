@@ -232,3 +232,7 @@
   content: attr(data-count);
   display: block;
 }
+
+.DataGrid .react-grid-Cell {
+  border-right: none;
+}
