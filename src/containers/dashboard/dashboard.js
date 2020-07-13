@@ -29,6 +29,7 @@ import IntraDay from "../../components/grids/intraDays/index.js";
 import { connect } from "react-redux";
 import ApexChart from "../../components/apexChart/apexChart";
 import ReavizioChart from "../../components/reavizioChart/reavizioChart";
+import { marketWatchActions } from "../../ducks/marketWatch";
 
 const GridLayout = SizeMe(RGL);
 
@@ -421,6 +422,11 @@ const mapStateToProps = (state) => {
     isDark: state.theme === "dark" ? true : false,
     isBlue: state.theme === "blue" ? true : false,
   };
+};
+
+const mapDispatchToProps = {
+  getAvailableIndexes: marketWatchActions.getAvailableIndexes,
+  getHistoricalStock: marketWatchActions.getHistoricalStock,
 };
 
 export default connect(mapStateToProps)(Dashboard);
