@@ -44,6 +44,11 @@ class Dashboard extends Component {
     isFullscreenRealTime: false,
   };
 
+  componentDidMount() {
+    this.props.dispatch(marketWatchActions.getAvailableIndex());
+    this.props.dispatch(marketWatchActions.getHistoricalStock());
+  }
+
   placeOrderHandler = () => {
     this.setState({ showPlaceOrder: true });
   };

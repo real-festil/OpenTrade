@@ -1,27 +1,34 @@
 import { takeLeading, put, call } from "redux-saga/effects";
 
-import { getAvailableIndex, getHistoricalStock } from "./actions";
+import * as marketWatchActions from "./actions";
 import API from "../../utils/api";
 
-function* getAvailableIndexFlow() {
+function* getAvailableIndexFlow(action) {
+  console.log("111111111111111");
   try {
     const indexes = API.get("available-indexes");
-    yield put(getAvailableIndex.success(indexes));
+    yield put(marketWatchActions.getAvailableIndexSuccess(indexes));
   } catch (e) {
     console.log(e);
   }
 }
 
-function* getHistoricalStockFlow() {
+function* getHistoricalStockFlow(action) {
   try {
     const historicalStock = API.get("historical-chart/1min/%5EGSPC");
-    yield put(getHistoricalStock.success(historicalStock));
+    yield put(marketWatchActions.getHistoricalStockSuccess(historicalStock));
   } catch (e) {
     console.log(e);
   }
 }
 
 export default [
-  takeLeading(getAvailableIndex.request, getAvailableIndexFlow),
-  takeLeading(getHistoricalStock.request, getHistoricalStockFlow),
+  takeLeading(
+    marketWatchActions.getAvailableIndexRequest,
+    getAvailableIndexFlow
+  ),
+  takeLeading(
+    marketWatchActions.getHistoricalStockRequest,
+    getHistoricalStockFlow
+  ),
 ];

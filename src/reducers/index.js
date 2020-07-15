@@ -1,4 +1,6 @@
 import { handleActions, createAction } from "redux-actions";
+import { marketWatchReducer } from "../ducks/marketWatch";
+import { combineReducers } from "redux";
 
 const initialState = { theme: "dark", trades: [] };
 
@@ -8,7 +10,7 @@ export const changeThemeWhite = createAction("CHANGE_THEME_WHITE");
 
 export const addTrade = createAction("ADD_TRADE");
 
-export default handleActions(
+const defaultReducer = handleActions(
   {
     [changeThemeDark](state) {
       return { theme: "dark" };
@@ -55,3 +57,8 @@ export default handleActions(
   },
   initialState
 );
+
+export default combineReducers({
+  marketWatchReducer,
+  defaultReducer,
+});

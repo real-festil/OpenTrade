@@ -1,16 +1,24 @@
-import { createReducer } from "redux-create-reducer";
+import { handleActions } from "redux-actions";
 import { combineReducers } from "redux";
 
-import { getAvailableIndex, getHistoricalStock } from "./actions";
+import * as marketWatchActions from "./actions";
 
-const availableIndexes = createReducer().handleActions(
-  [getAvailableIndex.success],
-  (state, action) => action.payload
+const availableIndexes = handleActions(
+  {
+    [marketWatchActions.getAvailableIndexSuccess](state, action) {
+      return action.payload.data;
+    },
+  },
+  []
 );
 
-const historicalStock = createReducer().handleActions(
-  [getHistoricalStock.success],
-  (state, action) => action.payload
+const historicalStock = handleActions(
+  {
+    [marketWatchActions.getHistoricalStockSuccess](state, action) {
+      return action.payload.data;
+    },
+  },
+  []
 );
 
 const marketWatchReducer = combineReducers({
