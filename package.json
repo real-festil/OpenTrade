@@ -11,7 +11,7 @@
     "@testing-library/user-event": "^7.2.1",
     "ace-builds": "^1.4.8",
     "apexcharts": "^3.19.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "chart.js": "^2.9.3",
     "chartjs-plugin-zoom": "^0.7.5",
     "create-async-action": "^1.0.1",
